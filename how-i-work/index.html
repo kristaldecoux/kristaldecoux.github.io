@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How I work · Kristal DeCoux</title>
+<meta name="description" content="Kristal DeCoux’s method for testing and optimization: deciding what to test, documenting and sharing results, the programs she has built, and how she leads.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How I work · Kristal DeCoux">
+<meta property="og:description" content="Kristal DeCoux’s method for testing and optimization: deciding what to test, documenting and sharing results, the programs she has built, and how she leads.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%236A2C5A'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EKD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="/">Kristal DeCoux</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/experiments/">Experiments</a></li>
+        <li><a href="/how-i-work/" aria-current="page">How I work</a></li>
+        <li><a href="/ai/">AI tools</a></li>
+        <li><a href="/search/">Search strategy</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <h1>A repeatable way to find what’s not working, and fix it</h1>
+    <p>The method, documentation and habits I’ve used to build testing and optimization programs at Ancestry, AWS and Elastic, and how I lead the people who run them.</p>
+  </div>
+
+  <section class="block" id="loop" aria-labelledby="h-loop">
+    <div class="container block-grid">
+      <h2 id="h-loop">The loop</h2>
+      <div class="prose">
+        <ol class="loop">
+          <li><div><h3>Set goals and tracking</h3><p>Tie every test to signups, leads or revenue, and confirm it’s measured before launch.</p></div></li>
+          <li><div><h3>Find the opportunities</h3><p>Analytics, heatmaps, session recordings, surveys and usability research, read side by side.</p></div></li>
+          <li><div><h3>Write the hypothesis</h3><p>If we change X, we expect Y, because of Z. Evidence, not preference.</p></div></li>
+          <li><div><h3>Scope the sample and timing</h3><p>Estimate visitors and duration up front so the data is neither under- nor oversampled.</p></div></li>
+          <li><div><h3>Build and QA</h3><p>Across devices and browsers, with no other launches on the page mid-test.</p></div></li>
+          <li><div><h3>Analyze the impact</h3><p>Significance on primary and secondary metrics, then lifetime value to size the annual gain.</p></div></li>
+          <li><div><h3>Ship, iterate and share</h3><p>Winners become the default, losers stop at the planned sample, and every result is archived and shared.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="deciding" aria-labelledby="h-deciding">
+    <div class="container block-grid">
+      <h2 id="h-deciding">Deciding what to test</h2>
+      <div class="prose">
+        <p>Plenty of data surfaces opportunities, but not every finding needs a test. Each one gets the right next step:</p>
+        <dl class="triage">
+          <dt>Just do it</dt><dd>An obvious fix that doesn’t need a test.</dd>
+          <dt>Instrument</dt><dd>A tracking or reporting gap to close first.</dd>
+          <dt>Investigate</dt><dd>The cause isn’t clear yet; dig deeper before writing a hypothesis.</dd>
+          <dt>Test</dt><dd>A clear opportunity to test and optimize.</dd>
+        </dl>
+        <p>Test ideas are then scored and ranked into a roadmap:</p>
+        <p class="formula">RICE = Reach × Impact × Confidence ÷ Effort</p>
+        <p>Each factor is scored 1 to 5 against defined scales, so a stakeholder’s favorite idea and a data-backed one are compared on the same terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="docs" aria-labelledby="h-docs">
+    <div class="container block-grid">
+      <h2 id="h-docs">Documenting every test</h2>
+      <div class="prose">
+        <p>Consistent documentation is what turns individual tests into a program people can learn from. Every test I run uses the same four templates.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Template</th><th scope="col">What it standardizes</th></tr></thead>
+            <tbody>
+              <tr><td>Test plan</td><td>Background, hypothesis, estimated business impact, primary and secondary metrics, sample size, audience, devices, and screenshots of each experience.</td></tr>
+              <tr><td>Tracking conventions</td><td>Click names that include the test ID and a unique UTM for every call to action, so every click ties to signups and CRM records.</td></tr>
+              <tr><td>Results readout</td><td>Date range and data caveats, results with significance, a full funnel for each experience, and numbered recommendations.</td></tr>
+              <tr><td>Process checklist</td><td>Pre-launch, post-launch and end-of-test tasks, from QA and heatmaps to launch emails, a CRM check and the archive.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Today, an AI tool I built drafts the test plan, brief and tracking issue from a single request. <a href="/ai/">See how it works</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sharing" aria-labelledby="h-sharing">
+    <div class="container block-grid">
+      <h2 id="h-sharing">Sharing what we learn</h2>
+      <div class="prose">
+        <p>A testing program scales only when the rest of marketing brings the ideas, so I make the work visible and easy to join.</p>
+        <ul>
+          <li><strong>Brainstorm workshops</strong> that cover testing basics, a deep dive into a page’s data and how to write a strong hypothesis, then end with a prioritized list of ideas. I’ve run them for the AWS homepage and for Elastic’s security journey.</li>
+          <li><strong>A monthly program review</strong> open to all of marketing: tests running, last month’s results and what’s next. It opens with a “Which test won?” vote, so people take part instead of multitasking.</li>
+          <li><strong>Intro to A/B testing training</strong> on sample size, significance and minimum detectable effect, so partners bring stronger ideas.</li>
+          <li><strong>Launch and results emails, Slack updates, a shared test calendar and a wiki</strong>, plus monthly and quarterly reviews with leadership.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="programs" aria-labelledby="h-programs">
+    <div class="container block-grid">
+      <h2 id="h-programs">Programs I’ve built</h2>
+      <div class="prose">
+        <h3>AWS website testing program, 2020–2021</h3>
+        <p>I founded the testing program for the AWS marketing website. I built a shared-responsibility model with teams across marketing, standards for test planning and documentation, brainstorm workshops, weekly office hours, and monthly and quarterly business reviews with leadership. I later led a team of five analysts and testing specialists supporting the global site.</p>
+        <div class="outcome">
+          <div><b>50</b><span>tests in the first 8 months</span></div>
+          <div><b>46%</b><span>win rate in year one</span></div>
+          <div><b>+400%</b><span>test volume year over year</span></div>
+        </div>
+        <p class="draft">Draft: the story of launching the AWS program goes here.</p>
+        <h3>Elastic.co experimentation program, 2021–2025</h3>
+        <p>I relaunched and matured Elastic’s testing program, with frameworks for generating hypotheses, documenting and analyzing tests, and sharing results across the company. With product and UX teams, I optimized first-time visitor and trial signup flows. <a href="/work/#trial-flow">Read the trial flow case study</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="lead" aria-labelledby="h-lead">
+    <div class="container block-grid">
+      <h2 id="h-lead">How I lead</h2>
+      <div class="prose">
+        <p>I lead people the way I approach visitors: by understanding them first.</p>
+        <ul>
+          <li><strong>Empathy first.</strong> I learn what each person needs before I ask for anything.</li>
+          <li><strong>Psychological safety.</strong> Half-formed ideas and losing tests are welcome, because that’s where the learning is. I protect a sustainable pace so people can do their best work for the long run.</li>
+          <li><strong>Coaching to your goals.</strong> Growth plans are built around each person’s career goals and passions, not just the team’s needs.</li>
+          <li><strong>Authenticity.</strong> I say what I think, admit what I don’t know and give credit to the people who did the work.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-contact">
+    <div class="container contact">
+      <h2 id="h-contact">Want to see a real test plan or readout?</h2>
+      <div class="contact-lines">
+        <div class="line"><code id="email">kmdecoux@gmail.com</code><button class="copy" id="copy-email" type="button">Copy email</button></div>
+        <div class="line"><a href="https://www.linkedin.com/in/kristal-decoux" rel="noopener">linkedin.com/in/kristal-decoux</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">Set in Hanken Grotesk and Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('copy-email'); if(!b) return;
+  b.addEventListener('click', async function(e){
+    var btn=e.currentTarget, el=document.getElementById('email');
+    try{ await navigator.clipboard.writeText(el.textContent); btn.textContent='Copied'; }
+    catch(_){ var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Selected, press Ctrl+C'; }
+    setTimeout(function(){btn.textContent='Copy email'},2000);
+  });
+})();
+</script>
+</body>
+</html>

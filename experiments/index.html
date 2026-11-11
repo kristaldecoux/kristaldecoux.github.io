@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Experiments · Kristal DeCoux</title>
+<meta name="description" content="A decade of website experiments that moved revenue and qualified pipeline at Ancestry, AWS and Elastic: case studies, wins, losses and lessons.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Experiments · Kristal DeCoux">
+<meta property="og:description" content="Website experiments at Ancestry, AWS and Elastic, judged on revenue, not clicks.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%236A2C5A'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EKD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: an experiment readout. Each case is a control-vs-variant result card with bars drawn to scale; one ink accent marks the variant. */
+:root{
+  --bg:#FAF8F5; --surface:#FFFFFF; --ink:#24202A; --muted:#5D5766; --rule:#E7E2EA;
+  --control:#A79FB0; --variant:#6A2C5A; --variant-soft:#F3E8F0; --loss:#9A4B1F; --loss-soft:#F6E9E0; --sage:#4C6B53;
+  --display:'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --body:'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Verdana, sans-serif;
+  --mono:'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17141B; --surface:#211D26; --ink:#EDE8F0; --muted:#B3ABBA; --rule:#332D3A;
+  --control:#6B6275; --variant:#D9A3C8; --variant-soft:#3A2535; --loss:#E3A178; --loss-soft:#3A2618; --sage:#9CC2A4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#17141B; --surface:#211D26; --ink:#EDE8F0; --muted:#B3ABBA; --rule:#332D3A;
+  --control:#6B6275; --variant:#D9A3C8; --variant-soft:#3A2535; --loss:#E3A178; --loss-soft:#3A2618; --sage:#9CC2A4; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 72px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--variant)}
+:focus-visible{outline:2px solid var(--variant);outline-offset:3px;border-radius:4px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:800;line-height:.98}
+.hero h1 em{font-style:normal;color:var(--variant)}
+.hero .lede{font-size:20px;color:var(--muted);max-width:34ch;margin-top:20px}
+.byline{display:flex;flex-direction:column;gap:6px;border-left:3px solid var(--variant);padding-left:20px}
+.byline strong{font-family:var(--display);font-size:26px;font-weight:700}
+.byline span{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stat{padding:24px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.stat+.stat{border-left:1px solid var(--rule)}
+.stat b{font-family:var(--mono);font-size:clamp(28px,4vw,40px);font-weight:700;font-variant-numeric:tabular-nums;color:var(--variant)}
+.stat span{color:var(--muted);font-size:15px}
+
+/* Section heads */
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:700}
+.sec-head p{color:var(--muted);max-width:62ch}
+
+/* Principles */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;border-top:2px solid var(--ink)}
+.principle{padding:20px 0 20px;display:flex;flex-direction:column;gap:8px;min-width:0;border-bottom:1px solid var(--rule)}
+
+/* Program: triage, culture, toolkit */
+.program{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel h3{font-size:22px;font-weight:700}
+.panel p,.panel li{color:var(--muted)}
+.panel ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+.panel li strong{color:var(--ink)}
+.panel.feature{background:var(--ink);border-color:var(--ink)}
+.panel.feature h3,.panel.feature li strong{color:var(--bg)}
+.panel.feature p,.panel.feature li{color:var(--control)}
+.formula{font-family:var(--mono);font-size:15px;color:var(--variant);background:var(--variant-soft);padding:10px 12px;border-radius:4px}
+.triage{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0}
+.triage dt{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink);padding-top:3px}
+.triage dd{margin:0;color:var(--muted)}
+.principle h3{font-size:19px;font-weight:700;line-height:1.2}
+.principle p{color:var(--muted);font-size:15.5px}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{font-family:var(--body);font-size:15px;font-weight:600;padding:8px 14px;border-radius:4px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* Cases */
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.case{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:26px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.case-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.case h3{font-size:24px;font-weight:700;line-height:1.15}
+.case .test{color:var(--muted)}
+.lift{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.lift b{font-family:var(--mono);font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--variant)}
+.lift.neg b{color:var(--loss)}
+.lift span{color:var(--muted);font-size:15px}
+.bars{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:grid;grid-template-columns:72px 1fr 64px;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.bar-row .lab{color:var(--muted)}
+.track{height:14px;background:var(--bg);border-radius:3px;overflow:hidden}
+.fill{height:100%;border-radius:3px}
+.fill.c{background:var(--control)}
+.fill.v{background:var(--variant)}
+.case.loss .fill.v{background:var(--loss)}
+.metric{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.lesson{border-top:1px solid var(--rule);padding-top:14px;font-size:16px}
+.lesson strong{font-family:var(--display)}
+.tag{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:4px;background:var(--variant-soft);color:var(--variant)}
+.case.loss .tag{background:var(--loss-soft);color:var(--loss)}
+
+/* Process */
+.process{display:grid;grid-template-columns:repeat(7,1fr);counter-reset:step;border-top:2px solid var(--ink)}
+.step{padding:18px 14px 0 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.step+.step{padding-left:14px;border-left:1px solid var(--rule)}
+.step::before{counter-increment:step;content:counter(step, decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--variant)}
+.step h3{font-size:17px;font-weight:700;line-height:1.2}
+.step p{font-size:14.5px;color:var(--muted)}
+
+/* Losses */
+.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:16px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;border-top:2px solid var(--ink);padding-top:36px}
+.contact h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;line-height:1.05}
+.contact-lines{display:flex;flex-direction:column;gap:12px}
+.line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.line code{font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--rule);padding:8px 12px;border-radius:4px;user-select:all}
+.copy{font-family:var(--body);font-weight:600;font-size:14px;padding:8px 12px;border-radius:4px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.note{font-size:14px;color:var(--muted);max-width:80ch}
+
+@media (max-width:900px){
+  .hero,.contact{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr 1fr}
+  .program{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .step,.step+.step{padding:14px 12px 14px 0;border-left:none;border-bottom:1px solid var(--rule)}
+  .cases{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:none}
+  .stat:nth-child(n+3){border-top:1px solid var(--rule)}
+  .principles,.process{grid-template-columns:1fr}
+  .case{padding:20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fill{transition:width .6s ease}
+}
+
+/* Brand overrides and site shell */
+.eyebrow{font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--sage)}
+th{font-family:var(--display);font-size:15px;letter-spacing:0;text-transform:none;font-weight:600}
+.hero h1{font-weight:700;letter-spacing:-.02em;font-size:clamp(34px,4.6vw,54px);line-height:1.05}
+.hero{grid-template-columns:1.5fr 1fr}
+h1,h2,h3{letter-spacing:-.01em}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--surface);padding:8px 12px}
+.skip:focus{left:16px}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+header.site{padding:20px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;color:var(--ink);text-decoration:none}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap}
+.nav ul a{color:var(--ink);text-decoration:none;font-size:16px}
+.nav ul a:hover{color:var(--variant);text-decoration:underline}
+.nav ul a[aria-current="page"]{color:var(--variant);font-weight:600}
+footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--rule)}
+.sec-head .eyebrow{color:var(--sage)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="/">Kristal DeCoux</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/experiments/" aria-current="page">Experiments</a></li>
+        <li><a href="/how-i-work/">How I work</a></li>
+        <li><a href="/ai/">AI tools</a></li>
+        <li><a href="/search/">Search strategy</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <header style="display:flex;flex-direction:column;gap:40px">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Testing &amp; optimization portfolio</p>
+        <h1 style="margin-top:14px">Experiments judged on revenue, <em>not</em> clicks.</h1>
+        <p class="lede">A decade of website experiments, rooted in data and customer behavior, that moved revenue and qualified pipeline at Ancestry, AWS and Elastic.</p>
+      </div>
+      <div class="byline">
+        <strong>Kristal DeCoux</strong>
+        <span>Web strategy, CRO and experimentation leader</span>
+        <span>Ancestry 2012–16 · AWS 2016–21 · Elastic 2021–now</span>
+      </div>
+    </div>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>$4.8M</b><span>annualized revenue from Ancestry tests I owned, from strategy to launch and analysis</span></div>
+      <div class="stat" role="listitem"><b>46%</b><span>win rate on 50 tests in AWS’s new program, first 8 months</span></div>
+      <div class="stat" role="listitem"><b>+400%</b><span>AWS test velocity, year over year</span></div>
+      <div class="stat" role="listitem"><b>+73%</b><span>Elastic Cloud trial signups from one homepage test</span></div>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-principles">
+    <div class="sec-head">
+      <p class="eyebrow">What the tests taught me</p>
+      <h2 id="h-principles">Six principles</h2>
+    </div>
+    <div class="principles">
+      <div class="principle"><h3>Data-driven hypotheses</h3><p>Combine quantitative and qualitative data, from analytics and heatmaps to session recordings, usability studies and focus groups, so ideas come from evidence, not preference.</p></div>
+      <div class="principle"><h3>Meet visitors where they are</h3><p>Match the message to what each visitor already knows. Someone new needs to understand what you offer before news or promotions mean anything.</p></div>
+      <div class="principle"><h3>Not all friction is bad friction</h3><p>Cut steps that add nothing. A step that adds context can mean fewer clicks but better-qualified signups and higher conversion.</p></div>
+      <div class="principle"><h3>Guide the choice</h3><p>Personalized, guided paths win. Too much choice before a purchase can stall the decision.</p></div>
+      <div class="principle"><h3>The audience decides</h3><p>“Contact sales” lost at Elastic and won at AWS. Test the path for each audience and industry.</p></div>
+      <div class="principle"><h3>Measure to the money</h3><p>Trial starts, form fills, billthrough and lifetime value decide the result, not clicks.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cases">
+    <div class="sec-head">
+      <p class="eyebrow">Case studies</p>
+      <h2 id="h-cases">Control vs. variant</h2>
+      <p>Each card shows the primary metric for control and the winning (or losing) variant, drawn to scale.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter case studies">
+      <button class="chip" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" id="f-funnel" data-f="funnel" aria-pressed="false">Funnel &amp; self-serve</button>
+      <button class="chip" id="f-landing" data-f="landing" aria-pressed="false">Landing pages &amp; paid</button>
+      <button class="chip" id="f-trust" data-f="trust" aria-pressed="false">Trust &amp; proof</button>
+      <button class="chip" id="f-personal" data-f="personal" aria-pressed="false">Personalization</button>
+      <button class="chip" id="f-aws" data-f="aws" aria-pressed="false">AWS program</button>
+    </div>
+    <div class="cases" id="cases"></div>
+  </section>
+
+  <section aria-labelledby="h-process">
+    <div class="sec-head">
+      <p class="eyebrow">Operating model</p>
+      <h2 id="h-process">How I run a program</h2>
+      <p>The same seven steps in every program I’ve built, with launch emails, a public Slack channel, a shared test calendar and leadership readouts so everyone sees the results.</p>
+    </div>
+    <div class="process">
+      <div class="step"><h3>Set goals and tracking</h3><p>Tie each test to signups, leads or revenue, and confirm it’s measured before launch.</p></div>
+      <div class="step"><h3>Scope sample and timing</h3><p>Estimate visitors and duration up front, so data is neither under- nor oversampled.</p></div>
+      <div class="step"><h3>Identify opportunities</h3><p>Analytics, heatmaps, session recordings and user research.</p></div>
+      <div class="step"><h3>Write the hypothesis</h3><p>If we change X, we’ll see Y, because Z. Evidence, not taste.</p></div>
+      <div class="step"><h3>Build and QA</h3><p>In whichever platform fits, across devices and browsers, with no launches mid-test.</p></div>
+      <div class="step"><h3>Analyze the impact</h3><p>Significance on primary and secondary KPIs, then lifetime value to size the annual gain.</p></div>
+      <div class="step"><h3>Ship, iterate, share</h3><p>Winners become the default. Losers stop at the planned sample. Every result goes on the wiki.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-program">
+    <div class="sec-head">
+      <p class="eyebrow">AWS, then Elastic</p>
+      <h2 id="h-program">Building the program, not just the tests</h2>
+      <p>A testing program scales only when marketers bring the ideas. These are the habits and tools I built at AWS and brought to Elastic.</p>
+    </div>
+    <div class="program">
+      <div class="panel">
+        <h3>Deciding what to test</h3>
+        <p>Many kinds of data surface opportunities, and each finding gets the right next step:</p>
+        <dl class="triage">
+          <dt>JUST DO IT</dt><dd>An obvious fix, no test needed</dd>
+          <dt>INSTRUMENT</dt><dd>A tracking or reporting gap to close first</dd>
+          <dt>INVESTIGATE</dt><dd>Cause unknown, dig deeper before a hypothesis</dd>
+          <dt>TEST</dt><dd>A clear opportunity to test and optimize</dd>
+        </dl>
+        <p class="formula">RICE = Reach × Impact × Confidence ÷ Effort</p>
+        <p>Each is scored 1–5 on defined scales. Ideas are ranked into a roadmap.</p>
+      </div>
+      <div class="panel feature">
+        <h3>A culture of experimentation</h3>
+        <ul>
+          <li><strong>Brainstorm workshops.</strong> Testing basics, a data deep dive, writing a strong hypothesis, then an idea brainstorm. Partners learn testing, and the team leaves with a roadmap. Run at AWS (Homepage) and Elastic (Security journey mapping).</li>
+          <li><strong>Monthly program review.</strong> Open to all marketers: running tests, last month’s results and what’s launching next. It opens with a “Which test won?” icebreaker vote, so people participate instead of multitasking.</li>
+          <li><strong>Training partners.</strong> Intro to A/B Testing: sample size, significance and MDE, so stakeholders bring stronger ideas.</li>
+          <li><strong>Templates and a wiki.</strong> The end-to-end process, scoping rules and outcomes, self-serve.</li>
+          <li><strong>Keeping everyone informed.</strong> Launch and results emails, Slack updates, a shared test calendar and leadership reviews.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:20px">
+      <table>
+        <thead><tr><th scope="col">Template</th><th scope="col">What it standardizes</th></tr></thead>
+        <tbody>
+          <tr><td>Test plan</td><td>Background, hypothesis, estimated business impact, primary and secondary KPIs, sample size, audience, devices, and screenshots of each user flow.</td></tr>
+          <tr><td>Tracking conventions</td><td>Click names like “Element Description [Test#]” and a unique UTM per CTA and experience, so every click ties to signups and CRM records.</td></tr>
+          <tr><td>Results readout</td><td>Date range and data caveats, results with significance, a full funnel per experience, and numbered recommendations.</td></tr>
+          <tr><td>Process checklist</td><td>Pre-launch, post-launch and test-end tasks, from QA and heatmaps to launch emails, a CRM check and the archive.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-losses">
+    <div class="sec-head">
+      <p class="eyebrow">Tests that lost</p>
+      <h2 id="h-losses">Every loss changed how I test</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Test</th><th scope="col">What happened</th><th scope="col">Lesson</th></tr></thead>
+        <tbody>
+          <tr><td>Search guidance banner · Ancestry</td><td>A banner asking for dates and places ran at the top of results, then sticky in the left rail. ClickTale recordings showed few people used it. It never shipped.</td><td>Keep iterating, and use recordings to learn why: visitors may not have known more, or tuned it out like an ad.</td></tr>
+          <tr><td>Marketplace CTAs · Elastic</td><td>Partners wouldn’t share who signed up, so the full funnel was invisible.</td><td>Make the business case explicit. Marketplace subscriptions were worth more, so even 1 signup per 100 visitors justified rolling it out.</td></tr>
+          <tr><td>Minor headline edits · Elastic</td><td>No difference between near-identical variants.</td><td>Test big swings and skip tiny copy tweaks.</td></tr>
+          <tr><td>“First Step” badge · Ancestry</td><td>Moving or removing it cut signups 4–5% with no DNA lift.</td><td>Some elements earn their place. Testing proves it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Want the test plan behind any of these?</h2>
+    <div class="contact-lines">
+      <div class="line"><code id="email">kmdecoux@gmail.com</code><button class="copy" id="copy-email" type="button">Copy email</button></div>
+      <div class="line"><a href="https://www.linkedin.com/in/kristal-decoux" rel="noopener">linkedin.com/in/kristal-decoux</a></div>
+      <p class="note">Figures come from my archived test plans and readouts. Ancestry program revenue and AWS program metrics are as reported on my resume. AWS readouts stayed with AWS; those results are as I recorded them. Percent changes are relative to control unless marked as rates.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">Set in Hanken Grotesk and Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</div>
+</footer>
+
+
+<script>
+const CASES = [
+  {f:["funnel","personal"], co:"Elastic", when:"Nov 2024", title:"Meet first-time visitors where they are",
+   test:"The hero changed with every product launch, but a first-time visitor doesn’t care about launches before knowing what Elastic does. Hypothesis: a static, brand-level message with a direct “Start free trial” CTA converts new visitors better.",
+   lift:"+73%", liftNote:"Cloud trial signups · p < 0.002", metric:"Trial signup rate (% of visitors)", c:0.30, v:0.52, unit:"%",
+   lesson:"Orient new visitors before announcing anything. Click-to-signup also jumped from 14% to 41%."},
+  {f:["funnel"], co:"Elastic", when:"Dec 2022", title:"Self-serve vs. “Contact us”", loss:true,
+   test:"Swapped “Start free trial” for “Contact us” as the primary CTA on five industry pages.",
+   lift:"−44%", liftNote:"primary CTA clicks · lost in 4 of 5 industries", metric:"Primary CTA click-through (%)", c:1.44, v:0.80, unit:"%",
+   lesson:"Here, visitors ready to evaluate didn’t want a sales conversation first. At AWS the opposite won, so I test the path for each audience."},
+  {f:["funnel"], co:"Elastic", when:"Two tests", title:"Healthy friction: the Cloud trial overview", won:true,
+   test:"Test 1: with product marketing, I rebuilt a trial overview page that wasn’t informative to explain how to sign up, what to do during the trial and where to get help. It lifted signups, trial starts, data ingestion and subscriptions. Test 2: homepage “Start free trial” clicks went to that page before registration.",
+   lift:"Both won", liftNote:"Test 2 brought fewer signups, but they started trials, ingested data and converted at higher rates",
+   lesson:"Not all friction is bad friction. A step that prepares people trades some volume for customers who stick. Exact figures weren’t saved."},
+  {f:["funnel","personal"], co:"Ancestry", when:"Free-trial flow", title:"Friction that adds context", mixed:true,
+   test:"After “Start free trial,” visitors answered an onboarding survey: intent (records, family tree or DNA), experience (beginner to expert) and commitment (hobby or passion). Their answers set the follow-up emails they got during the trial.",
+   lift:"↑ billthrough", liftNote:"fewer trial starts, but survey completers signed up and billed through at a higher rate",
+   lesson:"An extra step can be a better experience when it gives the customer context and lets you personalize. Exact figures weren’t saved."},
+  {f:["funnel"], co:"Elastic", when:"Apr–May 2022", title:"Marketplace options on Downloads",
+   test:"Added partner marketplace logos and a primary trial CTA to the Downloads page.",
+   lift:"+167%", liftNote:"signup rate, plus a new path to AWS, Azure and GCP", metric:"Signup rate (% of visitors)", c:0.24, v:0.64, unit:"%",
+   lesson:"Give buyers the purchase route they already use, next to a clear primary CTA."},
+  {f:["funnel","landing"], co:"Ancestry", when:"2014–2015", title:"Skip the offer page",
+   test:"Someone who clicked an ad for US records still had to choose between US and World plans. We skipped the offer page and sent them to signup for the plan that matched the ad: first the US, then the UK and Australia. I re-tested it in the UK when conversion softened.",
+   lift:"+$2.6M/yr", liftNote:"program impact · signups +14–16%, LTR +12–13%", metric:"UK re-test signup rate (%)", c:0.99, v:1.29, unit:"%",
+   lesson:"It worked because the ad already told us what the visitor wanted. Re-check a win when the business changes."},
+  {f:["funnel","landing"], co:"Ancestry", when:"Sept 2014", title:"A product-choice page before signup", loss:true,
+   test:"Asked paid search visitors to choose between two products before signup.",
+   lift:"−37%", liftNote:"conversion · default kept", metric:"Conversion rate (%)", c:2.05, v:1.29, unit:"%",
+   lesson:"A menu before purchase adds friction. Guide people to the right choice instead."},
+  {f:["landing","personal"], co:"Ancestry", when:"Nov 2015–Jan 2016", title:"Carry the search into checkout",
+   test:"Paid search visitors saw the record they’d searched for on every step of signup. I was the testing specialist; ~200K visitors per cell.",
+   lift:"+6.6%", liftNote:"signups (significant) · LTR per visitor +2.9%", metric:"Signup rate (%)", c:2.40, v:2.56, unit:"%",
+   lesson:"Keeping the visitor’s intent visible to payment is one of the most dependable lifts in paid acquisition."},
+  {f:["personal"], co:"Ancestry", when:"Sept–Oct 2015", title:"Guided choice beats a menu",
+   test:"Registered visitors and win-backs saw only “Start free trial” or “Subscribe.” A guided-choice banner added more ways to start: a family tree or AncestryDNA.",
+   lift:"+9%", liftNote:"signups · LTR per visitor +8.9%", metric:"Signup rate (%)", c:6.34, v:6.91, unit:"%",
+   lesson:"Give people more than one way to start, and guide them to the one that fits."},
+  {f:["trust","landing"], co:"Ancestry", when:"Mar–Sept 2014", title:"Trustpilot reviews, third time right",
+   test:"Versions 1 and 2 put reviews in the signup and payment flow and lost. Version 3 tested landing page, payment page, both or neither.",
+   lift:"+4.8%", liftNote:"signup rate · billthrough 47.1% → 50.4%", metric:"Signup rate (%)", c:1.87, v:1.96, unit:"%",
+   lesson:"Social proof works only in the right place, at the right time and in the right format. It took three tries."},
+  {f:["trust"], co:"Ancestry", when:"May 2016", title:"Quiet proof, big lift",
+   test:"A five-cell test of social follow icons, with or without follower counts, on a high-traffic SEO entry page.",
+   lift:"+11.6%", liftNote:"signups · LTR per visitor +22% · rolled out to 100%", metric:"Signup rate (%)", c:0.37, v:0.41, unit:"%",
+   lesson:"Proof that doesn’t compete with the task wins. Showing counts did worse than icons alone."},
+  {f:["trust"], co:"Elastic", when:"Apr 2022", title:"An analyst badge in the hero", loss:true,
+   test:"Promoted a new Forrester Wave rating in the homepage hero.",
+   lift:"−97%", liftNote:"hero CTA click-through · signups −45%", metric:"Hero CTA click-through (%)", c:8.47, v:0.28, unit:"%",
+   lesson:"Analyst proof belongs below the hero, near evaluation. Never let it replace the CTA."},
+  {f:["trust"], co:"Ancestry", when:"Strategy", title:"Six kinds of social proof, put to work",
+   test:"I brought a framework back from a conversion optimization conference talk (Sum it, Score it, Say it, Sign it, Show it, Shine it), audited Ancestry’s pages starting with the AncestryDNA homepage, scored each proof element and built a testing strategy for each type.",
+   lift:"+10%", liftNote:"conversion on high-volume entry pages · ~$20K a month",
+   lesson:"Treat social proof as a system you design and test, not a badge you add."},
+  {f:["aws","funnel","personal"], co:"AWS", when:"Homepage", title:"Orient first-time visitors",
+   test:"A six-slide carousel of launches, events and Free Tier greeted every visitor. First-time visitors instead saw a static, brand-level hero.",
+   lift:"+5%", liftNote:"trial button clicks · ~75% of clickers created an account",
+   lesson:"New visitors need orientation before announcements. I brought the approach to Elastic, where it lifted trial signups 73%."},
+  {f:["aws","personal"], co:"AWS", when:"Homepage", title:"“I’m a Builder” or “I’m a Buyer”?", mixed:true,
+   test:"A persona selector changed below-the-fold content by role. Visitors engaged, but clicks split evenly. A focus group at the next AWS Summit found developers clicked both, curious and afraid to miss something.",
+   lift:"50 / 50", liftNote:"clicks across the two options",
+   lesson:"Self-identification shows curiosity, not identity. Pair numbers with research, and infer intent from behavior."},
+  {f:["aws","landing"], co:"AWS", when:"Global nav", title:"Transcreation, not translation",
+   test:"A word-for-word Spanish “Start free trial” read as a command. With localization and regional teams, I rewrote it as an invitation, then audited CTAs in every supported language.",
+   lift:"+2%", liftNote:"trial CTA clicks and account creations",
+   lesson:"CTA tone is part of the offer. Localization is a conversion lever, not just translation."},
+  {f:["aws","funnel"], co:"AWS", when:"Industry pages", title:"When “Contact sales” is the right path",
+   test:"Trial CTAs on industry pages drew few clicks; the audience skewed toward decision-makers. “Contact sales” CTAs routed to industry-specific sales forms.",
+   lift:"+4.3%", liftNote:"more sales contacts",
+   lesson:"The opposite of Elastic’s result. The audience decides, so test the path for each one."},
+  {f:["aws","funnel"], co:"AWS", when:"Sales CTAs", title:"“Contact us” vs. “Contact sales”", mixed:true,
+   test:"I expected the softer “Contact us” to lift clicks and form fills. It lifted clicks to the sales form, but fewer visitors completed it.",
+   lift:"↓ fills", liftNote:"more clicks, fewer completed sales forms",
+   lesson:"An honest label qualifies the click. Judge sales CTAs on completed forms, not clicks."},
+  {f:["personal"], co:"Elastic", when:"Framework", title:"Segments and next best actions",
+   test:"Defined segments from first-party signals (first-time visitor, returning prospect, trialer, post-trial, customer) with one next best action and a CTA matrix by page type.",
+   lift:"7", liftNote:"lifecycle segments, each with one next step",
+   lesson:"Personalization scales when segments map to funnel stages. One-off rules don’t scale."}
+];
+
+const grid = document.getElementById('cases');
+function fmt(n,u){return (u==="%"? (n<10? n.toFixed(2): n.toFixed(1)) : n) + u}
+function card(x){
+  const max = Math.max(x.c ?? 0, x.v ?? 0) || 1;
+  const bars = (x.c!=null) ? `
+    <div class="bars" aria-label="${x.metric}: control ${fmt(x.c,x.unit)}, variant ${fmt(x.v,x.unit)}">
+      <p class="metric">${x.metric}</p>
+      <div class="bar-row"><span class="lab">Control</span><div class="track"><div class="fill c" style="width:${(x.c/max*100).toFixed(1)}%"></div></div><span>${fmt(x.c,x.unit)}</span></div>
+      <div class="bar-row"><span class="lab">Variant</span><div class="track"><div class="fill v" style="width:${(x.v/max*100).toFixed(1)}%"></div></div><span>${fmt(x.v,x.unit)}</span></div>
+    </div>` : '';
+  return `<article class="case${x.loss?' loss':''}" data-f="${x.f.join(' ')}">
+    <div class="case-meta"><span class="eyebrow">${x.co} · ${x.when}</span><span class="tag">${x.loss?'Variant lost':x.mixed?'Mixed result':(x.c!=null||x.won||x.co==='AWS'?'Variant won':'Framework')}</span></div>
+    <h3>${x.title}</h3>
+    <p class="test">${x.test}</p>
+    <div class="lift${x.loss?' neg':''}"><b>${x.lift}</b><span>${x.liftNote}</span></div>
+    ${bars}
+    <p class="lesson"><strong>Lesson.</strong> ${x.lesson}</p>
+  </article>`;
+}
+grid.innerHTML = CASES.map(card).join('');
+
+const chips=[...document.querySelectorAll('.chip')];
+chips.forEach(ch=>ch.addEventListener('click',()=>{
+  const f=ch.dataset.f;
+  chips.forEach(c=>c.setAttribute('aria-pressed', String(c===ch)));
+  grid.querySelectorAll('.case').forEach(el=>{el.hidden = !(f==='all' || el.dataset.f.split(' ').includes(f));});
+}));
+
+document.getElementById('copy-email').addEventListener('click', async (e)=>{
+  const btn=e.currentTarget, txt=document.getElementById('email').textContent;
+  try{ await navigator.clipboard.writeText(txt); btn.textContent='Copied'; }
+  catch(_){ const r=document.createRange(); r.selectNodeContents(document.getElementById('email')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Selected, press Ctrl+C'; }
+  setTimeout(()=>btn.textContent='Copy email',2000);
+});
+</script>
+</body>
+</html>

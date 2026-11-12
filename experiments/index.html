@@ -183,6 +183,9 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
   .nav nav{width:100%;min-width:0}
   .nav ul a{white-space:nowrap}
 }
+
+.foot-row{display:flex;flex-direction:column;gap:6px}
+.foot-row a{color:var(--muted)}
 </style>
 <!-- Send visitors on the GitHub Pages copy to the Vercel site -->
 <script>
@@ -454,7 +457,7 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
 </main>
 
 <footer>
-  <div class="container">Set in Hanken Grotesk and Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</div>
+  <div class="container foot-row"><nav aria-label="Footer"><a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/llms.txt">llms.txt</a></nav><span>Set in Hanken Grotesk and Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</span></div>
 </footer>
 
 

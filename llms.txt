@@ -11,6 +11,8 @@
 - [AI Tools for Web Teams: Claude Skills | Kristal DeCoux](https://kristaldecoux.vercel.app/ai/): Claude skills that automate web operations: SEO review for draft copy, optimization briefs for A/B tests, and request triage that cuts an hour to seconds.
 - [SEO, AEO and GEO Strategy for AI Search | Kristal DeCoux](https://kristaldecoux.vercel.app/search/): An approach to SEO, answer engine and generative engine optimization that makes content easy for people, search engines and AI models to find and cite.
 - [About Kristal DeCoux | Web Strategy and CRO Leader](https://kristaldecoux.vercel.app/about/): Kristal DeCoux is a web strategy and conversion leader in Lafayette, Louisiana, with 15 years at Ancestry, AWS and Elastic. How she leads and what she loves.
+- [Contact Kristal DeCoux | Web Strategy and CRO Leader](https://kristaldecoux.vercel.app/contact/): How to reach Kristal DeCoux, a web strategy and conversion leader based in Lafayette, Louisiana: email, LinkedIn, time zone and what she's glad to talk about.
+- [Privacy Policy | Kristal DeCoux](https://kristaldecoux.vercel.app/privacy/): What this site collects and what it doesn't: cookieless, aggregated Vercel Web Analytics, fonts from Google Fonts, and no forms, ads, cookies or data sales.
 
 ## Case studies
 

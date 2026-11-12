@@ -272,3 +272,25 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
 .gallery img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:4px;border:1px solid var(--border)}
 .gallery figcaption{font-size:15px;color:var(--muted);margin-top:6px}
 @media(max-width:600px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Hero diagrams */
+.page-head.with-visual{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:center}
+.hero-visual{margin:0}
+.hero-visual svg{display:block;width:100%;height:auto}
+.hv-ring{fill:none;stroke:var(--border);stroke-width:1}
+.hv-arc{fill:none;stroke:var(--muted);stroke-width:1.4;opacity:.7}
+.hv-arc-hot{fill:none;stroke:var(--accent);stroke-width:2}
+.hv-arrowhead{fill:var(--muted);opacity:.7}
+.hv-arrowhead-hot{fill:var(--accent)}
+.hero-visual svg text{font-family:var(--body);font-size:11px}
+.hv-center{fill:var(--ink);font-weight:600;text-anchor:middle}
+.hv-cap{fill:var(--muted);font-size:10.5px !important}
+.hv-tag{fill:var(--sage);font-weight:700;font-size:12px !important}
+.hv-skill{fill:var(--sage)}
+.hv-skill-text{fill:var(--surface);font-weight:700}
+.hv-link{fill:var(--sage);opacity:.85}
+.hv-you{fill:var(--accent)}
+.hv-you-soft{fill:var(--tint);stroke:var(--accent)}
+.hv-you-text{fill:var(--on-accent);font-size:9.5px !important;font-weight:600;text-anchor:middle}
+.hv-bubble{fill:var(--sage-tint);stroke:var(--sage)}
+@media(max-width:900px){.page-head.with-visual{grid-template-columns:minmax(0,1fr);gap:28px}.hero-visual{max-width:360px}}

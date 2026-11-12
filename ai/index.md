@@ -6,7 +6,7 @@ Source: https://kristaldecoux.vercel.app/ai/
 
 # AI tools that take the busywork off my team’s plate
 
-I’ve made AI part of how my team works. These Claude skills handle the repetitive parts of web operations, so people spend their time on judgment, not copying and formatting.
+I’ve made AI part of how my team works. These Claude skills handle the repetitive parts of web operations, so people spend their time on judgment, not copying and formatting. I also used Claude to build this website.
 
 ## Tools
 
@@ -67,6 +67,52 @@ Built when marketing’s requests lived in Workfront and the web team worked in 
 - An email to the requester with a checklist of missing details
 
 Triage went from 30–60 minutes per request to seconds.
+
+Project  
+This website · November 2026
+
+Built with  
+Claude, GitHub, Vercel, Google Drive
+
+My role  
+Strategy, content, every decision and every fact check
+
+Timeline  
+Two days, from a single portfolio page to a nine-page site
+
+Case study
+
+## This website: a job-search site built with AI in two days
+
+I started with one portfolio page and a resume. Two days later I had a nine-page site with a brand system, five case studies, a testing portfolio checked against my original test files, analytics, and pages ready for AI tools to read. Claude did the heavy lifting; I set the direction and decided what was true.
+
+### Where I led
+
+- **Strategy and brand.** I defined the positioning, audiences, information architecture and voice, then chose fonts and a palette from options Claude checked for accessibility. When the first palette didn’t feel like me, I changed it.
+- **The facts.** Claude read my archive of past test plans and results in Google Drive, more than a hundred decks and workbooks. Where my memory or my resume disagreed with the files, the files won: test order, treatments, results, and a spreadsheet that reported +195% when the math said +95%.
+- **Privacy.** I first opened the site to search engines, then chose to share it by direct link only while I’m still employed. That was a deliberate call, not a default.
+
+### What we built
+
+1.  Brand and content
+
+    #### A brand guide, then the pages
+
+    A written brand guide covering positioning, message pillars, voice, information architecture and an accessible color palette. Then the homepage, case studies, experiments, method, AI tools, search strategy, about, contact and privacy pages, and a matching resume PDF.
+
+2.  Publishing
+
+    #### GitHub to Vercel
+
+    The site lives in a GitHub repository and deploys automatically to Vercel, with cookieless analytics so I can see which pages recruiters read.
+
+3.  Search and AI readiness
+
+    #### Built to be read by machines too
+
+    SEO titles and descriptions written to the rules of my own SEO review skill, structured data describing who I am, an llms.txt summary, and Markdown versions of every page served to AI tools that ask for them. It scores well on Lighthouse and on an agent-readiness audit.
+
+AI made it fast. Judgment made it right: knowing what to ask for, checking every claim against the source, and deciding what not to publish.
 
 ## How I approach AI at work
 

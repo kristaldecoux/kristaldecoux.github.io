@@ -102,7 +102,7 @@ Reads incoming web requests, flags missing or incomplete information and replies
 
 Triage went from about an hour to seconds.
 
-[How each tool works](/ai/)
+[How each tool works](/ai/) · [How I built this website with AI](/ai/#this-site)
 
 ## How I lead
 

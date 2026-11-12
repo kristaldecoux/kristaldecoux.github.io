@@ -78,10 +78,10 @@
             <p class="res">“Start free trial” drew 55% fewer clicks and 30% fewer total signups. But 21.8% of the people who clicked it finished signing up, versus 11.2% for “Get started,” a 95% lift, and data ingestion and paid conversions held even. Visitors who clicked a clear “Start free trial” knew what they were signing up for. It became the default call to action across elastic.co.</p>
           </li>
           <li>
-            <span class="tnum">Test 2 · A trial overview step · May–Sep 2022</span>
+            <span class="tnum">Test 2 · A trial overview step · Apr–Sep 2022</span>
             <h4>Add a step on purpose</h4>
-            <p>On the security, Elasticsearch and Kibana pages, “Start free trial” went to the trial overview page before registration instead of straight to signup. We were adding friction, but we expected it to be healthy friction that prepared people for the trial.</p>
-            <p class="res">Inconclusive, but directional. The original sent more clicks to registration, while the variant showed a much higher data ingestion rate, a sign of better-qualified signups. Other teams changed the pages’ main buttons mid-test, so we paused it rather than call a winner.</p>
+            <p>Instead of going straight to registration, the trial button went to the trial overview page first. We were adding friction, but we expected it to be healthy friction that prepared people for the trial. We ran it twice.</p>
+            <p class="res">On the homepage (April–May), total signups fell 45%, but 85.5% of the people who signed up started a trial, compared with 59% in the original. On the security, Elasticsearch and Kibana pages (May–September), the variant again showed a higher data ingestion rate, but other teams changed those pages’ main buttons mid-test, so we paused it rather than call a winner. Directional, not conclusive, and it pointed us to the overview page itself.</p>
           </li>
           <li>
             <span class="tnum">Test 3 · Trial overview redesign · Feb–Apr 2023</span>
@@ -93,6 +93,7 @@
 
         <div class="outcome">
           <div><b>+95%</b><span>signup completion after a clearer call to action</span></div>
+          <div><b>59% → 86%</b><span>of signups who started a trial after the overview step</span></div>
           <div><b>+69%</b><span>trial signups from the redesigned overview page</span></div>
           <div><b>+64%</b><span>trial starts from the same page</span></div>
         </div>
@@ -238,22 +239,22 @@
     <div class="container cs-grid">
       <aside class="cs-meta">
         <dl>
-          <div><dt>Company</dt><dd>Ancestry · 2015</dd></div>
+          <div><dt>Company</dt><dd>Ancestry · 2015–2016</dd></div>
           <div><dt>Focus</dt><dd>Historical records search results page</dd></div>
-          <div><dt>My role</dt><dd>Conversion analyst: test design, analysis and recommendations</dd></div>
+          <div><dt>My role</dt><dd>Conversion analyst, then testing specialist: test design, analysis and recommendations</dd></div>
           <div><dt>Data</dt><dd>Web analytics, heatmaps, click and scroll maps, session recordings, A/B tests</dd></div>
-          <div><dt>Method</dt><dd>Two tests of one hypothesis</dd></div>
+          <div><dt>Method</dt><dd>Five tests on one problem over 14 months</dd></div>
         </dl>
       </aside>
       <div class="cs-body">
-        <h2 id="h-search">Two tries to get better searches, and what the losses taught us</h2>
-        <p>Sometimes the most useful result is learning that the problem isn’t the one you’re solving. Neither test won, and together they changed how I read form behavior.</p>
+        <h2 id="h-search">Four losses and a lift: five tests on Ancestry’s search results</h2>
+        <p>Sometimes the most useful result is learning that you’re solving the wrong problem. We spent four tests trying to get visitors to give us more information. The fifth stopped asking and changed what we showed them, and that’s what lifted signups.</p>
 
         <h3>The problem</h3>
         <p>The search results page was one of Ancestry’s top five entry pages for new visitors, with about 31,000 arriving there each day. Fewer than 1% of new visitors converted. Analytics, heatmaps and session recordings showed that most people searched with only a first and last name, sometimes a birth or death year, and only about 10% used the tools to refine their search.</p>
         <p>More details mean more accurate results. Better results make a visitor more likely to click a record, and since records open only with a subscription or trial, that click is the path to signup.</p>
 
-        <h3>The hypothesis</h3>
+        <h3>The first hypothesis</h3>
         <p>If we asked new visitors for more details about the person they were looking for, they would find the right records faster and more of them would subscribe.</p>
 
         <ol class="tests">
@@ -269,12 +270,36 @@
             <p>Since visitors scrolled past the banner, we moved the guidance into a panel that stayed on screen as they scrolled through results.</p>
             <p class="res">The original won. Signup conversion was 2.6% lower and lifetime revenue per visitor 3.8% lower, and recordings showed fewer than 20% of visitors interacted with the panel.</p>
           </li>
+          <li>
+            <span class="tnum">Test 3 · Choose your own adventure · 2016</span>
+            <h4>Offer a different way to start</h4>
+            <p>Maybe searching records wasn’t the right first step for everyone. A banner offered two ways to begin, searching records or building a family tree, tested at the top of the results, at the bottom, and at the bottom without page numbers.</p>
+            <p class="res">Flat to slightly down across about 737,000 visitors per version. The bottom placement without page numbers cut signups 5.2%.</p>
+          </li>
+          <li>
+            <span class="tnum">Test 4 · Results styling · May–Jun 2016</span>
+            <h4>Match how people scan</h4>
+            <p>About 70% of visitors arrived from search engines, which train people to scan the left side of a results page. We moved each person’s name from the right side of a result to the left.</p>
+            <p class="res">No change in record views or signups.</p>
+          </li>
+          <li>
+            <span class="tnum">Test 5 · Record thumbnails · Jun–Aug 2016</span>
+            <h4>Show the records, don’t ask for more</h4>
+            <p>Instead of asking visitors to do more, we changed what they saw: each search result included a thumbnail image of the actual record.</p>
+            <p class="res">Signups rose 3%, gross subscription adds 2% and lifetime revenue 2%. Visitors left the test after signing up and saw the old design afterward, which may have held down billthrough, so we planned to fix that in the next version.</p>
+          </li>
         </ol>
 
-        <h3>What we concluded</h3>
-        <p>Making the question more visible didn’t make people answer it. Most visitors probably didn’t know much more about their ancestor than a name and a couple of dates; if they had, they would have entered it the first time. No placement could ask for information people didn’t have.</p>
+        <div class="outcome">
+          <div><b>+3%</b><span>signups from record thumbnails</span></div>
+          <div><b>+2%</b><span>gross subscription adds</span></div>
+          <div><b>+2%</b><span>lifetime revenue</span></div>
+        </div>
 
-        <div class="lesson-box"><p>When visitors skip a form field, first ask whether they have the answer. Recordings told us why the tests lost, and the first test’s quality metrics were a reminder to look past the signup rate.</p></div>
+        <h3>What we learned</h3>
+        <p>Most visitors probably didn’t know much more about their ancestor than a name and a couple of dates; if they had, they would have entered it the first time. No placement could ask for information people didn’t have. Showing them what the records looked like did what asking couldn’t.</p>
+
+        <div class="lesson-box"><p>When visitors skip a form field, first ask whether they have the answer. If they don’t, stop asking and change what you show them.</p></div>
       </div>
     </div>
   </article>

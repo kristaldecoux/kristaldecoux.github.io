@@ -1,0 +1,26 @@
+# Kristal DeCoux
+
+> Web strategy and conversion leader with 15 years at Ancestry, AWS and Elastic. She improves websites, landing pages, signup flows and forms with analytics, research and experimentation, and builds the teams and programs that keep the work going.
+
+## Pages
+
+- [Kristal DeCoux | Web Strategy & Conversion Rate Optimization](https://kristaldecoux.vercel.app/): Web strategy and conversion leader with 15 years at Ancestry, AWS and Elastic. See case studies in CRO, A/B testing, UX research, SEO and AI search visibility.
+- [Web Strategy and CRO Case Studies | Kristal DeCoux](https://kristaldecoux.vercel.app/work/): Case studies from Elastic, AWS and Ancestry: a homepage redesign, trial signup tests, product page templates, search results tests and a web intake overhaul.
+- [A/B Testing Portfolio and Results | Kristal DeCoux](https://kristaldecoux.vercel.app/experiments/): A/B test results from Ancestry, AWS and Elastic, including the ones that lost, with the hypothesis, the data and the lesson behind each website experiment.
+- [How I Build Experimentation Programs | Kristal DeCoux](https://kristaldecoux.vercel.app/how-i-work/): The testing cycle, hypothesis method, documentation and cross-functional process Kristal DeCoux used to build and scale programs at Ancestry, AWS and Elastic.
+- [AI Tools for Web Teams: Claude Skills | Kristal DeCoux](https://kristaldecoux.vercel.app/ai/): Claude skills that automate web operations: SEO review for draft copy, optimization briefs for A/B tests, and request triage that cuts an hour to seconds.
+- [SEO, AEO and GEO Strategy for AI Search | Kristal DeCoux](https://kristaldecoux.vercel.app/search/): An approach to SEO, answer engine and generative engine optimization that makes content easy for people, search engines and AI models to find and cite.
+- [About Kristal DeCoux | Web Strategy and CRO Leader](https://kristaldecoux.vercel.app/about/): Kristal DeCoux is a web strategy and conversion leader in Lafayette, Louisiana, with 15 years at Ancestry, AWS and Elastic. How she leads and what she loves.
+
+## Case studies
+
+- [Fewer, better trial signups: three tests that rebuilt the path to Elastic Cloud](https://kristaldecoux.vercel.app/work/#trial-flow)
+- [From a stalled redesign to a leadership team that said yes](https://kristaldecoux.vercel.app/work/#elastic-redesign)
+- [Product pages that still shape aws.amazon.com ten years later](https://kristaldecoux.vercel.app/work/#aws-pdp)
+- [Four losses and a lift: five tests on Ancestry’s search results](https://kristaldecoux.vercel.app/work/#ancestry-search)
+- [Turning an hour of ticket triage into the push of a button](https://kristaldecoux.vercel.app/work/#intake)
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/kristal-decoux
+- Resume (PDF): https://kristaldecoux.vercel.app/resume.pdf

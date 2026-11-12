@@ -172,6 +172,18 @@ header.site{padding:20px 0}
 .nav ul a[aria-current="page"]{color:var(--variant);font-weight:600}
 footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--rule)}
 .sec-head .eyebrow{color:var(--sage)}
+/* Sticky navigation */
+html{scroll-padding-top:84px}
+header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:700px){
+  html{scroll-padding-top:112px}
+  header.site{padding:10px 0 6px}
+  .nav{gap:6px}
+  .nav ul{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav nav{width:100%;min-width:0}
+  .nav ul a{white-space:nowrap}
+}
 </style>
 <!-- Send visitors on the GitHub Pages copy to the Vercel site -->
 <script>

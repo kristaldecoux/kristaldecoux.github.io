@@ -19,6 +19,8 @@ I lead people the way I approach visitors: by understanding them first.
 - **Coaching to your goals.** Growth plans are built around each person’s career goals and passions, not just the team’s needs.
 - **Authenticity.** I say what I think, admit what I don’t know and give credit to the people who did the work.
 
+My CliftonStrengths top five are Analytical, Achiever, Belief, Responsibility and Learner. In practice that means I want to see the data, I finish what I start, I do my best work when I believe in the mission, I own my commitments, and I’m always learning something new.
+
 ## Where I’ve worked
 
 1.  2021 – now

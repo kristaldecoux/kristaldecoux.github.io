@@ -186,6 +186,17 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
 
 .foot-row{display:flex;flex-direction:column;gap:6px}
 .foot-row a{color:var(--muted)}
+
+/* Header matches the site's page header and metric cards */
+.xp-head{padding-top:8px}
+.xp-head h1{font-family:var(--display);font-size:clamp(34px,4.6vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.15;max-width:22ch;margin:0}
+.xp-head h1 em{font-style:normal;color:var(--variant)}
+.xp-head .lede{font-size:20px;color:var(--muted);max-width:60ch;margin-top:18px}
+.xp-proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.xp-metric{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:20px}
+.xp-metric b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.6vw,40px);color:var(--variant);font-variant-numeric:tabular-nums;line-height:1.1}
+.xp-metric span{display:block;color:var(--muted);font-size:16px;margin-top:8px;line-height:1.45}
+@media(max-width:900px){.xp-proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <!-- Send visitors on the GitHub Pages copy to the Vercel site -->
 <script>
@@ -315,24 +326,14 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
   </div>
 </header>
 <main class="wrap" id="main">
-  <header style="display:flex;flex-direction:column;gap:40px">
-    <div class="hero">
-      <div>
-        <p class="eyebrow">Testing &amp; optimization portfolio</p>
-        <h1 style="margin-top:14px">Experiments judged on revenue, <em>not</em> clicks.</h1>
-        <p class="lede">A decade of website experiments, rooted in data and customer behavior, that moved revenue and qualified pipeline at Ancestry, AWS and Elastic.</p>
-      </div>
-      <div class="byline">
-        <strong>Kristal DeCoux</strong>
-        <span>Web strategy, CRO and experimentation leader</span>
-        <span>Ancestry 2012–16 · AWS 2016–21 · Elastic 2021–now</span>
-      </div>
-    </div>
-    <div class="stats" role="list">
-      <div class="stat" role="listitem"><b>$4.8M</b><span>annualized revenue from Ancestry tests I owned, from strategy to launch and analysis</span></div>
-      <div class="stat" role="listitem"><b>46%</b><span>win rate on 50 tests in AWS’s new program, first 8 months</span></div>
-      <div class="stat" role="listitem"><b>+400%</b><span>AWS test velocity, year over year</span></div>
-      <div class="stat" role="listitem"><b>+73%</b><span>Elastic Cloud trial signups from one homepage test</span></div>
+  <header class="xp-head">
+    <h1>Experiments judged on revenue, <em>not</em> clicks.</h1>
+    <p class="lede">A decade of website experiments, rooted in data and customer behavior, that moved revenue and qualified pipeline at Ancestry, AWS and Elastic.</p>
+    <div class="xp-proof" role="list">
+      <div class="xp-metric" role="listitem"><b>$4.8M</b><span>annualized revenue from Ancestry tests I owned, from strategy to launch and analysis</span></div>
+      <div class="xp-metric" role="listitem"><b>46%</b><span>win rate on 50 tests in AWS’s new program, first 8 months</span></div>
+      <div class="xp-metric" role="listitem"><b>+400%</b><span>AWS test velocity, year over year</span></div>
+      <div class="xp-metric" role="listitem"><b>+73%</b><span>Elastic Cloud trial signups from one homepage test</span></div>
     </div>
   </header>
 

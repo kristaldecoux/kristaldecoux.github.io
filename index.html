@@ -143,7 +143,8 @@
 </header>
 
 <main id="main">
-  <div class="container hero">
+  <div class="container hero hero-grid">
+    <div>
     <p class="who">Kristal DeCoux · Web strategy and conversion leader</p>
     <h1>I turn customer curiosity into journeys that convert.</h1>
     <p class="support">Across sites, landing pages, signups and forms, I use analytics, research and experimentation to find where people get stuck. I’ve done it for 15 years at Ancestry, AWS and Elastic, and built the teams and programs that keep the work going.</p>
@@ -151,6 +152,11 @@
       <a class="btn primary" href="/work/">See my work</a>
       <a class="btn secondary" href="/resume.pdf">Download resume</a>
     </div>
+    </div>
+    <picture class="portrait hero-portrait">
+      <source srcset="/assets/kristal.webp" type="image/webp">
+      <img src="/assets/kristal.jpg" width="719" height="800" alt="Kristal DeCoux, smiling, in glasses and a floral top" fetchpriority="high">
+    </picture>
   </div>
 
   <section aria-labelledby="h-proof">
@@ -170,13 +176,16 @@
     <div class="container">
       <h2 id="h-work" class="sec-title">Selected work</h2>
       <p class="sec-lede">Redesigns, templates and programs that changed how people move from a first visit to a trial, a lead or a purchase.</p>
-      <div class="cards">
-        <article class="card">
+      <div class="cards featured">
+        <article class="card feature">
+          <div class="feature-text">
           <p class="label">Elastic · Homepage and key pages</p>
           <h3>From a stalled redesign to a leadership yes</h3>
           <p>After a costly agency redesign and a shelved first attempt, we won alignment one section at a time and shipped five key pages a day early.</p>
           <p class="result">Homepage scroll-through rose from under 9% to about 25%.</p>
           <a class="more" href="/work/#elastic-redesign">Read the case study</a>
+          </div>
+          <figure class="wf feature-fig"><svg viewBox="0 0 320 300" role="img" aria-label="Solutions page structure: hero leading with the product category, then problem, platform, proof and a call to action" focusable="false"><rect class="wf-frame" x="1" y="1" width="318" height="298" rx="6"/><rect class="wf-bar" x="1" y="1" width="318" height="16" rx="6"/><rect class="wf-bar" x="1" y="9" width="318" height="8"/><circle class="wf-dot" cx="12" cy="9" r="2.5"/><circle class="wf-dot" cx="21" cy="9" r="2.5"/><circle class="wf-dot" cx="30" cy="9" r="2.5"/><rect class="wf-hot" x="16" y="28" width="288" height="54" rx="3"/><text class="wf-hot-text" x="24" y="59.0">Hero: leads with the product category</text><rect class="wf-hot" x="16" y="90" width="288" height="40" rx="3"/><text class="wf-hot-text" x="24" y="114.0">Problem</text><rect class="wf-hot" x="16" y="138" width="288" height="50" rx="3"/><text class="wf-hot-text" x="24" y="167.0">Platform</text><rect class="wf-hot" x="16" y="196" width="288" height="40" rx="3"/><text class="wf-hot-text" x="24" y="220.0">Proof: customer stories</text><rect class="wf-hot" x="16" y="244" width="288" height="34" rx="3"/><text class="wf-hot-text" x="24" y="265.0">Call to action</text></svg><figcaption>The shared structure every solutions page now follows. Illustration, not a screenshot.</figcaption></figure>
         </article>
         <article class="card">
           <p class="label">AWS · Product detail pages</p>
@@ -214,23 +223,11 @@
     <div class="container">
       <h2 id="h-ai" class="sec-title">AI tools I’ve built</h2>
       <p class="sec-lede">Claude skills that take repetitive work off my team’s plate and put expert checks in everyone’s hands.</p>
-      <div class="tools">
-        <article class="tool">
-          <h3>SEO review</h3>
-          <p>Content authors run it on draft copy in their own Claude. It returns keyword and copy recommendations, page schema, and title and description metadata.</p>
-          <p class="impact">Our content now shows up more often in AI answers and overviews.</p>
-        </article>
-        <article class="tool">
-          <h3>Optimization brief</h3>
-          <p>Paste a test or merchandising request from an email, Slack thread or ticket. It returns an experiment brief, a test plan, a tracking issue and a review email, with targeting and metric names that follow our conventions.</p>
-          <p class="impact">One request in, every launch document out.</p>
-        </article>
-        <article class="tool">
-          <h3>Request triage</h3>
-          <p>Reads incoming web requests, flags missing or incomplete information and replies to the requester.</p>
-          <p class="impact">Triage went from about an hour to seconds.</p>
-        </article>
-      </div>
+      <ul class="tool-list">
+        <li><h3>SEO review</h3><div><p>Content authors run it on draft copy in their own Claude. It returns keyword and copy recommendations, page schema, and title and description metadata.</p><p class="impact">Our content now shows up more often in AI answers and overviews.</p></div></li>
+        <li><h3>Optimization brief</h3><div><p>Paste a test or merchandising request from an email, Slack thread or ticket. It returns an experiment brief, a test plan, a tracking issue and a review email, with targeting and metric names that follow our conventions.</p><p class="impact">One request in, every launch document out.</p></div></li>
+        <li><h3>Request triage</h3><div><p>Reads incoming web requests, flags missing or incomplete information and replies to the requester.</p><p class="impact">Triage went from about an hour to seconds.</p></div></li>
+      </ul>
       <p class="see-all"><a href="/ai/">How each tool works</a> · <a href="/ai/#this-site">How I built this website with AI</a></p>
     </div>
   </section>

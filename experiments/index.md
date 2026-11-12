@@ -4,13 +4,9 @@
 
 Source: https://kristaldecoux.vercel.app/experiments/
 
-Testing & optimization portfolio
-
 # Experiments judged on revenue, *not* clicks.
 
 A decade of website experiments, rooted in data and customer behavior, that moved revenue and qualified pipeline at Ancestry, AWS and Elastic.
-
-**Kristal DeCoux** Web strategy, CRO and experimentation leader Ancestry 2012–16 · AWS 2016–21 · Elastic 2021–now
 
 **\$4.8M**annualized revenue from Ancestry tests I owned, from strategy to launch and analysis
 

@@ -12,6 +12,8 @@ Across sites, landing pages, signups and forms, I use analytics, research and ex
 
 [See my work](/work/) [Download resume](/resume.pdf)
 
+![Kristal DeCoux, smiling, in glasses and a floral top](/assets/kristal.jpg)
+
 ## Results
 
 **AncestryAWSElastic**
@@ -37,6 +39,10 @@ After a costly agency redesign and a shelved first attempt, we won alignment one
 Homepage scroll-through rose from under 9% to about 25%.
 
 [Read the case study](/work/#elastic-redesign)
+
+![](data:image/svg+xml;base64,PHN2ZyB2aWV3Ym94PSIwIDAgMzIwIDMwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTb2x1dGlvbnMgcGFnZSBzdHJ1Y3R1cmU6IGhlcm8gbGVhZGluZyB3aXRoIHRoZSBwcm9kdWN0IGNhdGVnb3J5LCB0aGVuIHByb2JsZW0sIHBsYXRmb3JtLCBwcm9vZiBhbmQgYSBjYWxsIHRvIGFjdGlvbiIgZm9jdXNhYmxlPSJmYWxzZSI+PHJlY3QgY2xhc3M9IndmLWZyYW1lIiB4PSIxIiB5PSIxIiB3aWR0aD0iMzE4IiBoZWlnaHQ9IjI5OCIgcng9IjYiPjwvcmVjdD48cmVjdCBjbGFzcz0id2YtYmFyIiB4PSIxIiB5PSIxIiB3aWR0aD0iMzE4IiBoZWlnaHQ9IjE2IiByeD0iNiI+PC9yZWN0PjxyZWN0IGNsYXNzPSJ3Zi1iYXIiIHg9IjEiIHk9IjkiIHdpZHRoPSIzMTgiIGhlaWdodD0iOCI+PC9yZWN0PjxjaXJjbGUgY2xhc3M9IndmLWRvdCIgY3g9IjEyIiBjeT0iOSIgcj0iMi41Ij48L2NpcmNsZT48Y2lyY2xlIGNsYXNzPSJ3Zi1kb3QiIGN4PSIyMSIgY3k9IjkiIHI9IjIuNSI+PC9jaXJjbGU+PGNpcmNsZSBjbGFzcz0id2YtZG90IiBjeD0iMzAiIGN5PSI5IiByPSIyLjUiPjwvY2lyY2xlPjxyZWN0IGNsYXNzPSJ3Zi1ob3QiIHg9IjE2IiB5PSIyOCIgd2lkdGg9IjI4OCIgaGVpZ2h0PSI1NCIgcng9IjMiPjwvcmVjdD48dGV4dCBjbGFzcz0id2YtaG90LXRleHQiIHg9IjI0IiB5PSI1OS4wIj5IZXJvOiBsZWFkcyB3aXRoIHRoZSBwcm9kdWN0IGNhdGVnb3J5PC90ZXh0PjxyZWN0IGNsYXNzPSJ3Zi1ob3QiIHg9IjE2IiB5PSI5MCIgd2lkdGg9IjI4OCIgaGVpZ2h0PSI0MCIgcng9IjMiPjwvcmVjdD48dGV4dCBjbGFzcz0id2YtaG90LXRleHQiIHg9IjI0IiB5PSIxMTQuMCI+UHJvYmxlbTwvdGV4dD48cmVjdCBjbGFzcz0id2YtaG90IiB4PSIxNiIgeT0iMTM4IiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjUwIiByeD0iMyI+PC9yZWN0Pjx0ZXh0IGNsYXNzPSJ3Zi1ob3QtdGV4dCIgeD0iMjQiIHk9IjE2Ny4wIj5QbGF0Zm9ybTwvdGV4dD48cmVjdCBjbGFzcz0id2YtaG90IiB4PSIxNiIgeT0iMTk2IiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjQwIiByeD0iMyI+PC9yZWN0Pjx0ZXh0IGNsYXNzPSJ3Zi1ob3QtdGV4dCIgeD0iMjQiIHk9IjIyMC4wIj5Qcm9vZjogY3VzdG9tZXIgc3RvcmllczwvdGV4dD48cmVjdCBjbGFzcz0id2YtaG90IiB4PSIxNiIgeT0iMjQ0IiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjM0IiByeD0iMyI+PC9yZWN0Pjx0ZXh0IGNsYXNzPSJ3Zi1ob3QtdGV4dCIgeD0iMjQiIHk9IjI2NS4wIj5DYWxsIHRvIGFjdGlvbjwvdGV4dD48L3N2Zz4=)
+
+The shared structure every solutions page now follows. Illustration, not a screenshot.
 
 AWS · Product detail pages
 
@@ -84,23 +90,23 @@ The same loop runs through every program I’ve built, whether the change is a h
 
 Claude skills that take repetitive work off my team’s plate and put expert checks in everyone’s hands.
 
-### SEO review
+- ### SEO review
 
-Content authors run it on draft copy in their own Claude. It returns keyword and copy recommendations, page schema, and title and description metadata.
+  Content authors run it on draft copy in their own Claude. It returns keyword and copy recommendations, page schema, and title and description metadata.
 
-Our content now shows up more often in AI answers and overviews.
+  Our content now shows up more often in AI answers and overviews.
 
-### Optimization brief
+- ### Optimization brief
 
-Paste a test or merchandising request from an email, Slack thread or ticket. It returns an experiment brief, a test plan, a tracking issue and a review email, with targeting and metric names that follow our conventions.
+  Paste a test or merchandising request from an email, Slack thread or ticket. It returns an experiment brief, a test plan, a tracking issue and a review email, with targeting and metric names that follow our conventions.
 
-One request in, every launch document out.
+  One request in, every launch document out.
 
-### Request triage
+- ### Request triage
 
-Reads incoming web requests, flags missing or incomplete information and replies to the requester.
+  Reads incoming web requests, flags missing or incomplete information and replies to the requester.
 
-Triage went from about an hour to seconds.
+  Triage went from about an hour to seconds.
 
 [How each tool works](/ai/) · [How I built this website with AI](/ai/#this-site)
 

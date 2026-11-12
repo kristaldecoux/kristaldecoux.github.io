@@ -249,3 +249,19 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
 .wf-mark-win{fill:var(--accent)}
 .wf-mark-text{fill:var(--surface);font-weight:700}
 @media(max-width:640px){.wf-pair,.wf-single{grid-template-columns:minmax(0,1fr)}}
+
+/* Homepage: hero portrait, featured case study, tool list */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:56px;align-items:center}
+.hero-portrait{max-width:260px}
+.cards.featured{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card.feature{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:center}
+.feature-text{display:flex;flex-direction:column;gap:12px}
+.feature-text a.more{margin-top:8px}
+.feature-fig{margin:0}
+.tool-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--border)}
+.tool-list li{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding:22px 0;border-bottom:1px solid var(--border)}
+.tool-list h3{font-size:21px;font-weight:700}
+.tool-list p{color:var(--muted);font-size:17px;max-width:62ch}
+.tool-list .impact{color:var(--ink);font-weight:600;margin-top:8px}
+@media(max-width:900px){.hero-grid,.card.feature{grid-template-columns:minmax(0,1fr)}.hero-portrait{max-width:180px}.feature-fig{max-width:340px}.cards.featured{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.tool-list li{grid-template-columns:minmax(0,1fr);gap:8px}}

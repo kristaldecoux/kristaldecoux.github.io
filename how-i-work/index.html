@@ -43,17 +43,39 @@
 
   <section class="block" id="loop" aria-labelledby="h-loop">
     <div class="container block-grid">
-      <h2 id="h-loop">The loop</h2>
+      <h2 id="h-loop">A cycle, not a checklist</h2>
       <div class="prose">
+        <p>Every program I’ve built runs on the same loop. A test doesn’t have to win, but every test should produce an insight, and every insight should lead to the next test.</p>
         <ol class="loop">
-          <li><div><h3>Set goals and tracking</h3><p>Tie every test to signups, leads or revenue, and confirm it’s measured before launch.</p></div></li>
-          <li><div><h3>Find the opportunities</h3><p>Analytics, heatmaps, session recordings, surveys and usability research, read side by side.</p></div></li>
-          <li><div><h3>Write the hypothesis</h3><p>If we change X, we expect Y, because of Z. Evidence, not preference.</p></div></li>
-          <li><div><h3>Scope the sample and timing</h3><p>Estimate visitors and duration up front so the data is neither under- nor oversampled.</p></div></li>
-          <li><div><h3>Build and QA</h3><p>Across devices and browsers, with no other launches on the page mid-test.</p></div></li>
-          <li><div><h3>Analyze the impact</h3><p>Significance on primary and secondary metrics, then lifetime value to size the annual gain.</p></div></li>
-          <li><div><h3>Ship, iterate and share</h3><p>Winners become the default, losers stop at the planned sample, and every result is archived and shared.</p></div></li>
+          <li><div><h3>Set goals and measure</h3><p>Agree on what success looks like, tie it to signups, leads or revenue, and track performance against it before changing anything.</p></div></li>
+          <li><div><h3>Analyze the data for insights</h3><p>Find where the experience falls short of the goal, using every kind of data available (below).</p></div></li>
+          <li><div><h3>Identify the opportunities</h3><p>Sort each finding into the right next step and rate how much it matters.</p></div></li>
+          <li><div><h3>Develop and prioritize hypotheses</h3><p>Turn opportunities into hypotheses and rank them into a roadmap.</p></div></li>
+          <li><div><h3>Test</h3><p>Sized up front for sample and duration, built and QA’d across devices, with nothing else launching on the page mid-test.</p></div></li>
+          <li><div><h3>Analyze the results</h3><p>Significance on primary and secondary metrics, then lifetime value to size the gain. The result becomes the next insight.</p></div></li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="sources" aria-labelledby="h-sources">
+    <div class="container block-grid">
+      <h2 id="h-sources">Where insights come from</h2>
+      <div class="prose">
+        <p>Many stakeholders don’t know what data exists or where to find it, so I document the sources that feed a hypothesis:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Source</th><th scope="col">What it shows</th></tr></thead>
+            <tbody>
+              <tr><td>Heuristic analysis</td><td>Relevance, clarity, customer value, and elements that cause friction or distraction</td></tr>
+              <tr><td>User testing</td><td>Usability issues and the exact points where people get stuck</td></tr>
+              <tr><td>Qualitative research</td><td>Customer surveys, interviews, focus groups and chat logs</td></tr>
+              <tr><td>Technical analysis</td><td>Cross-browser and cross-device testing, conversion by device and browser, and page speed</td></tr>
+              <tr><td>Web analytics</td><td>Performance against goals, traffic volume and sources, and engagement</td></tr>
+              <tr><td>Mouse tracking</td><td>Heatmaps, click maps, scroll maps and session replays</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
@@ -62,14 +84,22 @@
     <div class="container block-grid">
       <h2 id="h-deciding">Deciding what to test</h2>
       <div class="prose">
-        <p>Plenty of data surfaces opportunities, but not every finding needs a test. Each one gets the right next step:</p>
+        <p>Not every finding needs a test. Each one goes into one of five buckets:</p>
         <dl class="triage">
+          <dt>Test it</dt><dd>A clear opportunity to improve behavior and conversion, with a good idea of how.</dd>
+          <dt>Instrument it</dt><dd>A tracking gap or something broken. Fix it first.</dd>
+          <dt>Hypothesize</dt><dd>A page or module that isn’t working, but the fix isn’t obvious yet.</dd>
           <dt>Just do it</dt><dd>An obvious fix that doesn’t need a test.</dd>
-          <dt>Instrument</dt><dd>A tracking or reporting gap to close first.</dd>
-          <dt>Investigate</dt><dd>The cause isn’t clear yet; dig deeper before writing a hypothesis.</dd>
-          <dt>Test</dt><dd>A clear opportunity to test and optimize.</dd>
+          <dt>Investigate</dt><dd>Dig deeper to find the root cause before deciding what to do.</dd>
         </dl>
-        <p>Test ideas are then scored and ranked into a roadmap:</p>
+        <p>Then each issue gets a severity score from 1 to 5. A 5 is a critical usability or conversion issue that most visitors see, with high potential revenue impact. A 1 is a minor issue with low impact.</p>
+        <h3>Writing a strong hypothesis</h3>
+        <p>A hypothesis starts from an insight and states what will change, what we expect to happen, and why: if we make this change, we’ll see this result, because of this reason. It also becomes the definition of success for the test.</p>
+        <ul>
+          <li><strong>Weak:</strong> “If we make the button orange, more people will click it because it’s more eye-catching.” Nothing in the data supports it.</li>
+          <li><strong>Strong:</strong> “If we add a primary call to action to the hero, signups will increase, because visitors will better understand how to start.”</li>
+        </ul>
+        <p>Hypotheses are then ranked into a roadmap:</p>
         <p class="formula">RICE = Reach × Impact × Confidence ÷ Effort</p>
         <p>Each factor is scored 1 to 5 against defined scales, so a stakeholder’s favorite idea and a data-backed one are compared on the same terms.</p>
       </div>
@@ -80,7 +110,7 @@
     <div class="container block-grid">
       <h2 id="h-docs">Documenting every test</h2>
       <div class="prose">
-        <p>Consistent documentation is what turns individual tests into a program people can learn from. Every test I run uses the same four templates.</p>
+        <p>Consistent documentation turns individual tests into a program people can learn from. It started at Ancestry, where our first test plans were Word documents that grew to 10 or 15 pages and few people read all the way through. We switched to slide decks: a screenshot of every experience, labels showing the team how to set up primary and secondary metrics and tag each element, and the results added to the same deck when the test ended. Every program since has used four templates:</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th scope="col">Template</th><th scope="col">What it standardizes</th></tr></thead>
@@ -92,6 +122,7 @@
             </tbody>
           </table>
         </div>
+        <p>Every plan and result goes into one archive anyone can search, so the next person can see what was tried, how, and whether it’s worth revisiting. Ancestry’s Trustpilot tests are a good example: it took several placements and formats before reviews worked, and the archive kept us from repeating the misses.</p>
         <p>Today, an AI tool I built drafts the test plan, brief and tracking issue from a single request. <a href="/ai/">See how it works</a>.</p>
       </div>
     </div>
@@ -101,12 +132,13 @@
     <div class="container block-grid">
       <h2 id="h-sharing">Sharing what we learn</h2>
       <div class="prose">
-        <p>A testing program scales only when the rest of marketing brings the ideas, so I make the work visible and easy to join.</p>
+        <p>A testing program scales only when the rest of the organization brings ideas, so I make the work visible and easy to join.</p>
         <ul>
-          <li><strong>Brainstorm workshops</strong> that cover testing basics, a deep dive into a page’s data and how to write a strong hypothesis, then end with a prioritized list of ideas. I’ve run them for the AWS homepage and for Elastic’s security journey.</li>
-          <li><strong>A monthly program review</strong> open to all of marketing: tests running, last month’s results and what’s next. It opens with a “Which test won?” vote, so people take part instead of multitasking.</li>
-          <li><strong>Intro to A/B testing training</strong> on sample size, significance and minimum detectable effect, so partners bring stronger ideas.</li>
-          <li><strong>Launch and results emails, Slack updates, a shared test calendar and a wiki</strong>, plus monthly and quarterly reviews with leadership.</li>
+          <li><strong>A monthly experimentation review</strong> open to anyone in marketing or product: recent results, tests running now and what’s launching next. At AWS it opened with a “Which test won?” vote. We walked through a recent test’s hypothesis and both experiences, everyone voted, then we revealed the winner. People paid attention, and they learned something every time.</li>
+          <li><strong>Launch and results emails</strong> to an opt-in distribution list, so the people who cared got every update and no one else got spam.</li>
+          <li><strong>A searchable archive</strong> of every test plan and result, first on SharePoint, later on Confluence and wiki pages.</li>
+          <li><strong>A guide to A/B testing for marketers</strong> that walks through the cycle above, the data sources, the five buckets and how to write a hypothesis, so partners arrive with stronger ideas.</li>
+          <li><strong>Brainstorm workshops</strong> that end with a prioritized list of ideas, run for the AWS homepage and Elastic’s security journey, plus office hours and leadership reviews.</li>
         </ul>
       </div>
     </div>
@@ -116,16 +148,17 @@
     <div class="container block-grid">
       <h2 id="h-programs">Programs I’ve built</h2>
       <div class="prose">
-        <h3>AWS website testing program, 2020–2021</h3>
-        <p>I founded the testing program for the AWS marketing website. I built a shared-responsibility model with teams across marketing, standards for test planning and documentation, brainstorm workshops, weekly office hours, and monthly and quarterly business reviews with leadership. I later led a team of five analysts and testing specialists supporting the global site.</p>
+        <h3>Ancestry, 2011–2016: where the model started</h3>
+        <p>I joined Ancestry as a project manager on the analytics team just as it was launching an experimentation function. The test plan decks, the archive, the monthly review and the opt-in launch and results emails all started there, and they built real curiosity about testing across the company. I went on to design and analyze tests as a conversion analyst and then led conversion optimization.</p>
+        <h3>AWS, 2020–2021: a program from scratch</h3>
+        <p>When AWS asked me to launch a testing program for its marketing website, I brought the Ancestry model and added to it: templates for every plan and result from day one, a test archive anyone at AWS could open, the monthly review with its “Which test won?” vote, and an in-depth guide that taught marketers the testing cycle. A shared-responsibility model with teams across marketing, weekly office hours and quarterly business reviews kept it running. I later led a team of five analysts and testing specialists supporting the global site.</p>
         <div class="outcome">
           <div><b>50</b><span>tests in the first 8 months</span></div>
           <div><b>46%</b><span>win rate in year one</span></div>
           <div><b>+400%</b><span>test volume year over year</span></div>
         </div>
-        <p class="draft">Draft: the story of launching the AWS program goes here.</p>
-        <h3>Elastic.co experimentation program, 2021–2025</h3>
-        <p>I relaunched and matured Elastic’s testing program, with frameworks for generating hypotheses, documenting and analyzing tests, and sharing results across the company. With product and UX teams, I optimized first-time visitor and trial signup flows. <a href="/work/#trial-flow">Read the trial flow case study</a>.</p>
+        <h3>Elastic, 2021–now</h3>
+        <p>I relaunched and matured Elastic’s testing program with the same cycle, templates and archive, and optimized first-time visitor and trial signup flows with product and UX teams. <a href="/work/#trial-flow">Read the trial flow case study</a>.</p>
       </div>
     </div>
   </section>

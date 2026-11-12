@@ -43,7 +43,7 @@ I love to hike. My favorite summit so far is Mount Timpanogos in Utah, and I’v
 
 I’ve called six places home: Los Angeles; San Francisco; Seattle; Provo, Utah; Shelton, Connecticut; and now Lafayette, Louisiana. Travel has taken me to England, Scotland, Ireland, Italy, Paris, Madrid and Thailand, and around the US to New York, Chicago, Denver, Austin, Houston and Pennsylvania, among others.
 
-I care about animal rescue and welfare, and about access to education and culture for rural and underserved communities. I’m drawn to organizations with a mission.
+I care about animal rescue and welfare. My dog and cat are both rescues, and so were the two dogs before them. I also care about access to education and culture for rural and underserved communities. I’m drawn to organizations with a mission.
 
 ![Kristal smiling in front of the cliffside town of Positano, Italy](/assets/gallery/positano.jpg)
 
@@ -53,21 +53,21 @@ Positano, Italy
 
 On the trail
 
-![A layered bake topped with raspberries, pistachios and white chocolate decorations](/assets/gallery/bake-raspberry.jpg)
+![A layered raspberry pistachio bake topped with raspberries, pistachios and white chocolate decorations](/assets/gallery/bake-raspberry.jpg)
 
-From my kitchen
+My take on a raspberry pistachio bake from *Bake Off*
 
 ![Rows of homemade macarons on a baking tray](/assets/gallery/macarons.jpg)
 
 Macarons
 
-![A small black-and-white dog resting its chin on a couch cushion](/assets/gallery/dog.jpg)
+![A tabby kitten and a large white dog lounging together on a bed](/assets/gallery/rescues.jpg)
 
-Quality control
+My rescues today
 
-![Stonehenge under a cloudy sky](/assets/gallery/stonehenge.jpg)
+![A small black-and-white rat terrier resting its chin on a couch cushion](/assets/gallery/dog.jpg)
 
-Stonehenge, England
+My rescue rat terrier
 
 ## I’d love to hear what you’re working on.
 

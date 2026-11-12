@@ -70,7 +70,7 @@ Elastic · Dec 2022Variant lost
 
 Swapped “Start free trial” for “Contact us” as the primary CTA on five industry pages.
 
-**−44%**primary CTA clicks · lost in 4 of 5 industries
+**−44%**primary CTA clicks · p \< 0.01 · lower in 3 of 5 industries
 
 **Lesson.** Here, visitors ready to evaluate didn’t want a sales conversation first. At AWS the opposite won, so I test the path for each audience.
 

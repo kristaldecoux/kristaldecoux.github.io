@@ -416,7 +416,7 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
         </ul>
       </div>
     </div>
-    <div class="table-wrap" style="margin-top:20px">
+    <div class="table-wrap" style="margin-top:20px" role="region" tabindex="0" aria-label="Testing program results table">
       <table>
         <thead><tr><th scope="col">Template</th><th scope="col">What it standardizes</th></tr></thead>
         <tbody>
@@ -434,7 +434,7 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
       <p class="eyebrow">Tests that lost</p>
       <h2 id="h-losses">Every loss changed how I test</h2>
     </div>
-    <div class="table-wrap">
+    <div class="table-wrap" role="region" tabindex="0" aria-label="Tests that lost table">
       <table>
         <thead><tr><th scope="col">Test</th><th scope="col">What happened</th><th scope="col">Lesson</th></tr></thead>
         <tbody>
@@ -470,7 +470,7 @@ const CASES = [
    lesson:"Orient new visitors before announcing anything. Click-to-signup also jumped from 14% to 41%."},
   {f:["funnel"], co:"Elastic", when:"Dec 2022", title:"Self-serve vs. “Contact us”", loss:true,
    test:"Swapped “Start free trial” for “Contact us” as the primary CTA on five industry pages.",
-   lift:"−44%", liftNote:"primary CTA clicks · lost in 4 of 5 industries", metric:"Primary CTA click-through (%)", c:1.44, v:0.80, unit:"%",
+   lift:"−44%", liftNote:"primary CTA clicks · p < 0.01 · lower in 3 of 5 industries", metric:"Primary CTA click-through (%)", c:1.44, v:0.80, unit:"%",
    lesson:"Here, visitors ready to evaluate didn’t want a sales conversation first. At AWS the opposite won, so I test the path for each audience."},
   {f:["funnel"], co:"Elastic", when:"Feb–Apr 2023", title:"A trial page worth the extra step",
    test:"A generic, committee-designed trial overview page sat between visitors and registration. I recommended rebuilding it around their questions: how the trial works, what you get, what to do once you’re in, where to find help and why it matters.",

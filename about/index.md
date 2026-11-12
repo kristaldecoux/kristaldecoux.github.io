@@ -8,6 +8,8 @@ Source: https://kristaldecoux.vercel.app/about/
 
 I’m a web strategy and conversion leader with more than 15 years at Ancestry, AWS and Elastic. I’m happiest when I’m figuring out why visitors do what they do, and helping teams build something better because of it. I work remotely from Lafayette, Louisiana.
 
+![Kristal DeCoux, smiling, in glasses and a floral top, sitting in a hotel lobby](/assets/kristal.jpg)
+
 ## How I lead
 
 I lead people the way I approach visitors: by understanding them first.
@@ -36,6 +38,10 @@ I lead people the way I approach visitors: by understanding them first.
 I bake the way I test: a new flavor idea, a test batch, a tweak and another try. Most of my experiments start with something I saw on *The Great British Bake Off*.
 
 I read a lot of science fiction, fantasy and magical realism, with a soft spot for absurd humor and the occasional post-apocalyptic world.
+
+I love to hike. My favorite summit so far is Mount Timpanogos in Utah, and I’ve hiked in Arches, Zion, Mount Rainier and the Great Smoky Mountains.
+
+I’ve called six places home: Los Angeles; San Francisco; Seattle; Provo, Utah; Shelton, Connecticut; and now Lafayette, Louisiana. Travel has taken me to England, Scotland, Ireland, Italy, Paris, Madrid and Thailand, and around the US to New York, Chicago, Denver, Austin, Houston and Pennsylvania, among others.
 
 I care about animal rescue and welfare, and about access to education and culture for rural and underserved communities. I’m drawn to organizations with a mission.
 

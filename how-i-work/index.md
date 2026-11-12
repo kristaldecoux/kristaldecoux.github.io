@@ -114,7 +114,7 @@ A testing program scales only when the rest of the organization brings ideas, so
 
 ### Ancestry, 2011–2016: where the model started
 
-I joined Ancestry as a project manager on the analytics team just as it was launching an experimentation function. The test plan decks, the archive, the monthly review and the opt-in launch and results emails all started there, and they built real curiosity about testing across the company. I went on to design and analyze tests as a conversion analyst and then led conversion optimization.
+I moved onto Ancestry’s analytics team as a project manager just as it was launching an experimentation function. The test plan decks, the archive, the monthly review and the opt-in launch and results emails all started there, and they built real curiosity about testing across the company. I went on to design and analyze tests as a conversion analyst and then led conversion optimization.
 
 **25 → 300+**tests a year, from year one to year four
 

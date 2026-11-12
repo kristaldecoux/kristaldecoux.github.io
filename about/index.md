@@ -39,7 +39,7 @@ I bake the way I test: a new flavor idea, a test batch, a tweak and another try.
 
 I read a lot of science fiction, fantasy and magical realism, with a soft spot for absurd humor and the occasional post-apocalyptic world.
 
-I love to hike. My favorite summit so far is Mount Timpanogos in Utah. I’ve hiked all over the Pacific Northwest, especially in the Cascades and the Olympic Mountains, and down the West Coast: the Oregon coast and dunes, the redwoods, Big Sur, Mount Diablo and the Santa Monica Mountains. Farther east, I’ve hiked Arches, Zion, the Great Smoky Mountains and Ohiopyle State Park in Pennsylvania.
+I love to hike. My favorite summit so far is Mount Timpanogos in Utah. I’ve hiked all over the Pacific Northwest, especially in the Cascades (including Mount Rainier) and the Olympic Mountains, and down the West Coast: the Oregon coast and dunes, the redwoods, Big Sur, Mount Diablo and the Santa Monica Mountains. Farther east, I’ve hiked Arches, Zion, the Great Smoky Mountains and Ohiopyle State Park in Pennsylvania.
 
 I love history, art and natural history museums, and I’m the kind of nerd who reads almost every plaque. I just love learning something new.
 

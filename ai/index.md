@@ -110,7 +110,15 @@ I started with one portfolio page and a resume. Two days later I had a nine-page
 
     #### Built to be read by machines too
 
-    SEO titles and descriptions written to the rules of my own SEO review skill, structured data describing who I am, an llms.txt summary, and Markdown versions of every page served to AI tools that ask for them. It scores well on Lighthouse and on an agent-readiness audit.
+    SEO titles and descriptions written to the rules of my own SEO review skill, structured data describing who I am, an llms.txt summary, and Markdown versions of every page served to AI tools that ask for them.
+
+    While the site was open to crawlers, Lighthouse SEO rose from 60 to 100, with accessibility and best practices at 100, and an agent-readiness audit rose from 65 to 98. I then chose to hide the site from search again and share it by link.
+
+**60 → 100**Lighthouse SEO score
+
+**65 → 98**agent-readiness audit score
+
+**2 days**from one page to a nine-page site
 
 AI made it fast. Judgment made it right: knowing what to ask for, checking every claim against the source, and deciding what not to publish.
 

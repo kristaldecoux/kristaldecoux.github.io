@@ -173,6 +173,13 @@ header.site{padding:20px 0}
 footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--rule)}
 .sec-head .eyebrow{color:var(--sage)}
 </style>
+<!-- Vercel Web Analytics: loads only on the Vercel-hosted site -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  if (location.protocol.indexOf('http') === 0 && !/github[.]io$/.test(location.hostname)) {
+    var va = document.createElement('script'); va.defer = true; va.src = '/_vercel/insights/script.js'; document.head.appendChild(va);
+  }
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

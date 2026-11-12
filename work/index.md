@@ -96,7 +96,7 @@ Designing a better homepage was the easy part. The hard part was getting a passi
 
 ### The problem
 
-In 2023, Elastic paid a creative agency to redesign the whole website. It took a lot of time and money, and nobody loved the result, but it was too costly not to launch. Leadership lived with it, unhappily.
+In 2022, Elastic hired a creative agency to redesign the whole website. The new site launched in 2023. It took a lot of time and money, and nobody loved the result, but it was too costly not to launch. Leadership lived with it, unhappily.
 
 In 2025, we tried to rethink just the homepage with an in-house team. We spent two months presenting complete designs, and every round stalled on opinions. The project was shelved.
 

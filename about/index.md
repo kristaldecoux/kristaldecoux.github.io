@@ -45,6 +45,30 @@ I’ve called six places home: Los Angeles; San Francisco; Seattle; Provo, Utah;
 
 I care about animal rescue and welfare, and about access to education and culture for rural and underserved communities. I’m drawn to organizations with a mission.
 
+![Kristal smiling in front of the cliffside town of Positano, Italy](/assets/gallery/positano.jpg)
+
+Positano, Italy
+
+![Kristal in sunglasses and a backpack on a mountain trail above an alpine lake](/assets/gallery/trail.jpg)
+
+On the trail
+
+![A layered bake topped with raspberries, pistachios and white chocolate decorations](/assets/gallery/bake-raspberry.jpg)
+
+From my kitchen
+
+![Rows of homemade macarons on a baking tray](/assets/gallery/macarons.jpg)
+
+Macarons
+
+![A small black-and-white dog resting its chin on a couch cushion](/assets/gallery/dog.jpg)
+
+Quality control
+
+![Stonehenge under a cloudy sky](/assets/gallery/stonehenge.jpg)
+
+Stonehenge, England
+
 ## I’d love to hear what you’re working on.
 
 `kmdecoux@gmail.com`

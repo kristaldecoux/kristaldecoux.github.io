@@ -1,6 +1,7 @@
 # kristaldecoux.github.io
 
-Personal site for Kristal DeCoux.
+Personal site for Kristal DeCoux, hosted on Vercel at https://kristaldecoux.vercel.app.
+The GitHub Pages copy (kristaldecoux.github.io) forwards every page to the Vercel site.
 
 ```
 index.html               → homepage

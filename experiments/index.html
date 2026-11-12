@@ -173,6 +173,12 @@ header.site{padding:20px 0}
 footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--rule)}
 .sec-head .eyebrow{color:var(--sage)}
 </style>
+<!-- Send visitors on the GitHub Pages copy to the Vercel site -->
+<script>
+  if (/github[.]io$/.test(location.hostname)) {
+    location.replace('https://kristaldecoux.vercel.app' + location.pathname + location.search + location.hash);
+  }
+</script>
 <!-- Vercel Web Analytics: loads only on the Vercel-hosted site -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

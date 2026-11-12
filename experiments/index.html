@@ -315,7 +315,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px soli
       <table>
         <thead><tr><th scope="col">Test</th><th scope="col">What happened</th><th scope="col">Lesson</th></tr></thead>
         <tbody>
-          <tr><td>Search guidance banner · Ancestry</td><td>A banner asking for dates and places ran at the top of results, then sticky in the left rail. ClickTale recordings showed few people used it. It never shipped.</td><td>Keep iterating, and use recordings to learn why: visitors may not have known more, or tuned it out like an ad.</td></tr>
+          <tr><td>Search guidance · Ancestry</td><td>A banner above search results asking for more details about an ancestor, then a sticky panel. Signups fell 10% and then 2.6%, and recordings showed fewer than 20% of visitors used either one.</td><td>Use recordings to learn why. Visitors likely didn’t know more than a name and a few dates. Test 1 still raised subscription quality, so look past the signup rate.</td></tr>
           <tr><td>Marketplace CTAs · Elastic</td><td>Partners wouldn’t share who signed up, so the full funnel was invisible.</td><td>Make the business case explicit. Marketplace subscriptions were worth more, so even 1 signup per 100 visitors justified rolling it out.</td></tr>
           <tr><td>Minor headline edits · Elastic</td><td>No difference between near-identical variants.</td><td>Test big swings and skip tiny copy tweaks.</td></tr>
           <tr><td>“First Step” badge · Ancestry</td><td>Moving or removing it cut signups 4–5% with no DNA lift.</td><td>Some elements earn their place. Testing proves it.</td></tr>
@@ -349,10 +349,14 @@ const CASES = [
    test:"Swapped “Start free trial” for “Contact us” as the primary CTA on five industry pages.",
    lift:"−44%", liftNote:"primary CTA clicks · lost in 4 of 5 industries", metric:"Primary CTA click-through (%)", c:1.44, v:0.80, unit:"%",
    lesson:"Here, visitors ready to evaluate didn’t want a sales conversation first. At AWS the opposite won, so I test the path for each audience."},
-  {f:["funnel"], co:"Elastic", when:"Two tests", title:"Healthy friction: the Cloud trial overview", won:true,
-   test:"Test 1: with product marketing, I rebuilt a trial overview page that wasn’t informative to explain how to sign up, what to do during the trial and where to get help. It lifted signups, trial starts, data ingestion and subscriptions. Test 2: homepage “Start free trial” clicks went to that page before registration.",
-   lift:"Both won", liftNote:"Test 2 brought fewer signups, but they started trials, ingested data and converted at higher rates",
-   lesson:"Not all friction is bad friction. A step that prepares people trades some volume for customers who stick. Exact figures weren’t saved."},
+  {f:["funnel"], co:"Elastic", when:"Feb–Apr 2023", title:"A trial page worth the extra step",
+   test:"A generic, committee-designed trial overview page sat between visitors and registration. I recommended rebuilding it around their questions: how the trial works, what you get, what to do once you’re in, where to find help and why it matters.",
+   lift:"+69%", liftNote:"trial signups from the page · trial starts +64% · p < 0.001", metric:"Trial signup rate (% of page visitors)", c:7.04, v:11.90, unit:"%",
+   lesson:"If you add a step, make it useful. A page that sets expectations brought in more signups and more trial starts."},
+  {f:["funnel"], co:"Elastic", when:"Jan–Feb 2022", title:"“Get started” or “Start free trial”?", mixed:true,
+   test:"Changed the homepage hero button from “Get started” to “Start free trial,” with a note that the trial is free for 14 days and needs no credit card.",
+   lift:"+95%", liftNote:"signup completion among clickers · 55% fewer clicks, 30% fewer total signups", metric:"Signup completion after clicking (%)", c:11.19, v:21.82, unit:"%",
+   lesson:"A clear label qualifies the click. Fewer people clicked, but the ones who did knew what they wanted, and “Start free trial” became the default across elastic.co."},
   {f:["funnel","personal"], co:"Ancestry", when:"Free-trial flow", title:"Friction that adds context", mixed:true,
    test:"After “Start free trial,” visitors answered an onboarding survey: intent (records, family tree or DNA), experience (beginner to expert) and commitment (hobby or passion). Their answers set the follow-up emails they got during the trial.",
    lift:"↑ billthrough", liftNote:"fewer trial starts, but survey completers signed up and billed through at a higher rate",

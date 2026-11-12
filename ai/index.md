@@ -68,6 +68,22 @@ Built when marketing’s requests lived in Workfront and the web team worked in 
 
 Triage went from 30–60 minutes per request to seconds.
 
+## Open-source skills anyone can use
+
+I rewrote my testing and web playbooks as seven Claude skills that work for any team, and published them on GitHub under an open-source license. The statistics run in a small script, so the numbers are calculated, not estimated.
+
+| Skill                          | What it does                                                                                                                                 |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| A/B test readout               | Turns visitor and funnel counts into significance, confidence intervals, a sample ratio check and a decision-ready readout.                  |
+| Test sizing and prioritization | Works out how many visitors a test needs and how long it will run, and ranks ideas with RICE scores.                                         |
+| “Has this been tested?”        | Searches a test archive for similar past tests and advises whether an idea is worth revisiting.                                              |
+| Project brief reviewer         | Scores a web project request, rewrites vague answers, proposes an effort tier and drafts a reply to the requester.                           |
+| Launch page updater            | Maps a launch, report or event to the page sections that need updating, with draft copy and an SEO checklist.                                |
+| Optimization brief             | Turns a test or personalization request into a tracking issue, platform brief, test plan and review email, set up once for any team’s tools. |
+| SEO review                     | Returns a meta title and description, schema and prioritized fixes for search engines and AI assistants.                                     |
+
+[See the skills on GitHub](https://github.com/KristalDeCoux-CRO/web-optimization-skills)
+
 Project  
 This website · November 2026
 

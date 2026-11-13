@@ -197,6 +197,9 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
 .xp-metric b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(30px,3.6vw,40px);color:var(--variant);font-variant-numeric:tabular-nums;line-height:1.1}
 .xp-metric span{display:block;color:var(--muted);font-size:16px;margin-top:8px;line-height:1.45}
 @media(max-width:900px){.xp-proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:17px;padding:12px 20px;border-radius:4px;text-decoration:none;border:2px solid var(--variant)}
+.btn.primary{background:var(--variant);border-color:var(--variant);color:var(--bg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 <!-- Send visitors on the GitHub Pages copy to the Vercel site -->
 <script>
@@ -451,6 +454,7 @@ header.site{position:sticky;top:0;z-index:50;background:var(--bg);padding:14px 0
   <section class="contact" aria-labelledby="h-contact">
     <h2 id="h-contact">Want the test plan behind any of these?</h2>
     <div class="contact-lines">
+      <div class="line"><a class="btn primary" href="https://cal.com/kristal-decoux-i6xkri/30min" target="_blank" rel="noopener">Schedule a 30-minute call<span class="sr"> (opens cal.com in a new tab)</span></a></div>
       <div class="line"><code id="email">kmdecoux@gmail.com</code><button class="copy" id="copy-email" type="button">Copy email</button></div>
       <div class="line"><a href="https://www.linkedin.com/in/kristal-decoux-6514219/" rel="noopener">linkedin.com/in/kristal-decoux-6514219</a></div>
       <p class="note">Figures come from my archived test plans and readouts. Ancestry program revenue and AWS program metrics are as reported on my resume. AWS readouts stayed with AWS; those results are as I recorded them. Percent changes are relative to control unless marked as rates.</p>

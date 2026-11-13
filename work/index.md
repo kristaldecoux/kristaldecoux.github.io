@@ -415,6 +415,8 @@ The fastest way to speed up a team is to fix what happens before the work starts
 
 I’m happy to walk through the test plans, readouts and research behind any of these.
 
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
+
 `kmdecoux@gmail.com`
 
 [See the experiments portfolio](/experiments/)

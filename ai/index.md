@@ -149,6 +149,8 @@ AI made it fast. Judgment made it right: knowing what to ask for, checking every
 
 ## Curious how these could work for your team?
 
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
+
 `kmdecoux@gmail.com`
 
 [linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)

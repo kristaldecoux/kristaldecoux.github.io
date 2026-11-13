@@ -19,13 +19,16 @@ This is a personal portfolio site. It has no accounts, no forms and no ads, and 
 - No cookies for tracking or advertising.
 - No forms, sign-ups or newsletters, so no personal information is submitted here.
 - No selling or sharing of data with anyone.
-- Links to LinkedIn and other sites follow those sites’ own privacy policies once you leave this one.
+- Links to LinkedIn, cal.com and other sites follow those sites’ own privacy policies once you leave this one.
+- The “Schedule a call” button opens my booking page on cal.com. Cal.com handles what you enter there, and I receive your name, email and answers with the booking.
 
 If you email me, I use your message only to reply. Questions about this page can go to <kmdecoux@gmail.com>.
 
 Last updated November 12, 2026.
 
 ## Questions about privacy?
+
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
 
 `kmdecoux@gmail.com`
 

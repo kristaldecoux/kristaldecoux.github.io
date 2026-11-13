@@ -77,6 +77,8 @@ Since the content pipeline changed, Elastic’s content has been appearing more 
 
 ## Let’s talk about how people find you.
 
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
+
 `kmdecoux@gmail.com`
 
 [linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)

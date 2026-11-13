@@ -10,7 +10,8 @@ I’m glad to hear about web strategy, conversion and experimentation leadership
 
 ## How to reach me
 
-- **Email:** <kmdecoux@gmail.com>. This is the fastest way to reach me.
+- **Schedule a call:** [book 30 minutes on my calendar (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min). Pick any open time; you’ll get a video link with the invite.
+- **Email:** <kmdecoux@gmail.com>. The fastest way to reach me in writing.
 - **LinkedIn:** [linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/). Connect or send a message there.
 - **Location:** Lafayette, Louisiana, working remotely across US time zones. I’m on Central time.
 - **Resume:** [download a PDF](/resume.pdf) with my full experience, tools and education.
@@ -24,6 +25,8 @@ I’m glad to hear about web strategy, conversion and experimentation leadership
 If you’re a recruiter or hiring manager, it helps to include the role, the team it sits in and what success looks like in the first year.
 
 ## Looking forward to hearing from you.
+
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
 
 `kmdecoux@gmail.com`
 

@@ -188,6 +188,8 @@ I lead people the way I approach visitors: by understanding them first.
 
 ## Want to see a real test plan or readout?
 
+[Schedule a 30-minute call (opens cal.com in a new tab)](https://cal.com/kristal-decoux-i6xkri/30min)
+
 `kmdecoux@gmail.com`
 
 [linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)

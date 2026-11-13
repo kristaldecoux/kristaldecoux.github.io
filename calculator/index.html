@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A/B test calculator · Kristal DeCoux</title>
+<meta name="description" content="Scope the impact of an A/B test, plan it, find the detectable lift by week, and analyze results with one consistent set of math.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A/B test calculator · Kristal DeCoux">
+<meta property="og:description" content="Scope the impact of an A/B test, plan it, find the detectable lift by week, and analyze results with one consistent set of math.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23A3431E'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EKD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<!-- Send visitors on the GitHub Pages copy to the Vercel site -->
+<script>
+  if (/github[.]io$/.test(location.hostname)) {
+    location.replace('https://kristaldecoux.vercel.app' + location.pathname + location.search + location.hash);
+  }
+</script>
+<!-- Vercel Web Analytics: loads only on the Vercel-hosted site -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  if (location.protocol.indexOf('http') === 0 && !/github[.]io$/.test(location.hostname)) {
+    var va = document.createElement('script'); va.defer = true; va.src = '/_vercel/insights/script.js'; document.head.appendChild(va);
+  }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="/">Kristal DeCoux</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/experiments/">Experiments</a></li>
+        <li><a href="/how-i-work/">How I work</a></li>
+        <li><a href="/ai/">AI tools</a></li>
+        <li><a href="/search/">Search strategy</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container page-head">
+    <h1>A/B test calculator</h1>
+    <p>Size the business impact, plan a test, see what lift you can detect if it has to end by week 6, 7 or 8, and analyze the results, all with the same math. Nothing you enter leaves this page.</p>
+  </div>
+
+  <section class="block calc" aria-label="Calculator">
+    <div class="container">
+      <div class="calc-tabs" role="tablist" aria-label="Calculator mode">
+        <button role="tab" id="tab-scope" aria-controls="panel-scope" aria-selected="true">1. Scope impact</button>
+        <button role="tab" id="tab-plan" aria-controls="panel-plan" aria-selected="false" tabindex="-1">2. Plan a test</button>
+        <button role="tab" id="tab-mde" aria-controls="panel-mde" aria-selected="false" tabindex="-1">3. Detectable lift by week</button>
+        <button role="tab" id="tab-results" aria-controls="panel-results" aria-selected="false" tabindex="-1">4. Analyze results</button>
+      </div>
+
+      <!-- SCOPE -->
+      <div class="calc-panel" role="tabpanel" id="panel-scope" aria-labelledby="tab-scope">
+        <p class="calc-intro">Turn page traffic and conversions into a baseline, then see what a winning test would be worth over a year. Use a recent date range long enough to smooth out holidays.</p>
+        <div class="calc-grid">
+          <label>Total visitors in range<input id="s-vis" type="number" step="1" min="1" value="150000"></label>
+          <label>Days in range<input id="s-days" type="number" step="1" min="1" value="90"></label>
+          <label>Total conversions in range<input id="s-conv" type="number" step="1" min="0" value="4500"></label>
+          <label>Expected relative lift (%)<input id="s-lift" type="number" step="any" value="10"></label>
+        </div>
+        <fieldset class="calc-funnel">
+          <legend>Downstream funnel (optional)</legend>
+          <p class="calc-hint">Counts for the same date range, each step a subset of the one before. Leave a step blank to skip it.</p>
+          <div class="calc-grid calc-pairs">
+            <label>Step 2 name<input id="s-n1" type="text" value="Activated"></label>
+            <label>Step 2 count<input id="s-c1" type="number" step="1" min="0" value="2700"></label>
+            <label>Step 3 name<input id="s-n2" type="text" value="Qualified"></label>
+            <label>Step 3 count<input id="s-c2" type="number" step="1" min="0" value="810"></label>
+            <label>Step 4 name<input id="s-n3" type="text" value="Paid"></label>
+            <label>Step 4 count<input id="s-c3" type="number" step="1" min="0" value="162"></label>
+          </div>
+        </fieldset>
+        <div class="calc-out" id="out-scope" aria-live="polite"></div>
+        <p><button type="button" class="btn secondary" id="s-use">Use this baseline in Plan</button></p>
+      </div>
+
+      <!-- PLAN -->
+      <div class="calc-panel" role="tabpanel" id="panel-plan" aria-labelledby="tab-plan" hidden>
+        <p class="calc-intro">How many visitors and how long a test needs to detect a given lift. Same inputs as the Adobe Target calculator.</p>
+        <div class="calc-grid">
+          <label>Baseline conversion rate (%)<input id="p-base" type="number" step="any" min="0" value="3"></label>
+          <label>Daily visitors (all experiences)<input id="p-daily" type="number" step="1" min="1" value="5000"></label>
+          <label>Experiences, including control<input id="p-k" type="number" step="1" min="2" max="10" value="2"></label>
+          <label>Confidence level (%)<select id="p-conf"><option>80</option><option>90</option><option selected>95</option><option>99</option></select></label>
+          <label>Statistical power (%)<select id="p-power"><option>70</option><option selected>80</option><option>90</option></select></label>
+          <label>Test type<select id="p-sides"><option value="2" selected>Two-sided</option><option value="1">One-sided</option></select></label>
+          <label>Custom lift to check (%)<input id="p-custom" type="number" step="any" min="0" value="7.5"></label>
+          <label class="check"><input id="p-bonf" type="checkbox" checked> Correct for multiple variants (Bonferroni)</label>
+          <label>Flag tests longer than (weeks)<input id="p-max" type="number" step="1" min="1" value="8"></label>
+        </div>
+        <div class="calc-out" id="out-plan" aria-live="polite"></div>
+      </div>
+
+      <!-- MDE -->
+      <div class="calc-panel" role="tabpanel" id="panel-mde" aria-labelledby="tab-mde" hidden>
+        <p class="calc-intro">The smallest lift a test can reliably detect if it runs for a set number of weeks. Use it when the plan runs longer than you can wait.</p>
+        <div class="calc-grid">
+          <label>Baseline conversion rate (%)<input id="m-base" type="number" step="any" min="0" value="3"></label>
+          <label>Weekly visitors (all experiences)<input id="m-weekly" type="number" step="1" min="1" value="35000"></label>
+          <label>Experiences, including control<input id="m-k" type="number" step="1" min="2" max="10" value="2"></label>
+          <label>Confidence level (%)<select id="m-conf"><option>80</option><option>90</option><option selected>95</option><option>99</option></select></label>
+          <label>Statistical power (%)<select id="m-power"><option>70</option><option selected>80</option><option>90</option></select></label>
+          <label>Test type<select id="m-sides"><option value="2" selected>Two-sided</option><option value="1">One-sided</option></select></label>
+          <label class="check"><input id="m-bonf" type="checkbox" checked> Correct for multiple variants (Bonferroni)</label>
+          <label>Highlight weeks<input id="m-hl" type="text" value="6, 7, 8"></label>
+          <button type="button" class="btn secondary calc-copy" id="m-copy">Copy inputs from Plan</button>
+        </div>
+        <div class="calc-out" id="out-mde" aria-live="polite"></div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="calc-panel" role="tabpanel" id="panel-results" aria-labelledby="tab-results" hidden>
+        <p class="calc-intro">Significance, lift with a confidence interval, chance to beat control, and a sample ratio check. The first row is the control.</p>
+        <div class="table-wrap" role="region" tabindex="0" aria-label="Results inputs table">
+          <table class="calc-rows">
+            <thead><tr><th scope="col">Experience</th><th scope="col">Visitors</th><th scope="col">Conversions</th><th scope="col"><span class="sr">Remove</span></th></tr></thead>
+            <tbody id="r-rows"></tbody>
+          </table>
+        </div>
+        <p><button type="button" class="btn secondary" id="r-add">Add a variant</button></p>
+        <div class="calc-grid">
+          <label>Confidence level (%)<select id="r-conf"><option>80</option><option>90</option><option selected>95</option><option>99</option></select></label>
+          <label>Test type<select id="r-sides"><option value="2" selected>Two-sided</option><option value="1">One-sided</option></select></label>
+          <label class="check"><input id="r-bonf" type="checkbox" checked> Correct for multiple variants (Bonferroni)</label>
+          <label>Planned split<select id="r-split"><option value="equal" selected>Equal across experiences</option><option value="none">Don't check</option></select></label>
+        </div>
+        <div class="calc-out" id="out-results" aria-live="polite"></div>
+      </div>
+
+      <details class="calc-method">
+        <summary>How the math works</summary>
+        <ul>
+          <li><strong>Impact:</strong> daily visitors and conversions are totals divided by days in range; weekly is daily times 7. The new rate is the baseline times (1 + expected lift). Incremental conversions are daily visitors times the change in rate, times 365 for a year. Each funnel step carries those extra conversions forward at its current step-to-step rate.</li>
+          <li><strong>Sample size:</strong> the two-proportion formula used by the Adobe Target calculator, with variance taken at both the baseline and the expected rate. Lifts are relative: a 10% lift on a 3% baseline is 3.3%.</li>
+          <li><strong>Multiple variants:</strong> with the Bonferroni correction on, the significance level is divided by the number of variants compared to control, so 95% confidence with three variants tests each at 98.33%.</li>
+          <li><strong>Duration:</strong> visitors per experience times the number of experiences, divided by daily visitors, rounded up. Run at least one full week, ideally two, even if the sample fills sooner.</li>
+          <li><strong>Detectable lift by week:</strong> the same formula solved for the lift, given the visitors each experience would get by that week.</li>
+          <li><strong>Results:</strong> a pooled two-proportion z-test for the p-value, an unpooled interval for the difference, and a delta-method interval for the relative lift. Chance to beat control is a normal approximation, not a full Bayesian model.</li>
+          <li><strong>Sample ratio check:</strong> a chi-square test of visitors against the planned split. A p-value under 0.001 usually means a targeting, redirect or tracking problem to fix before trusting the results.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+<script>
+(function(){
+"use strict";
+// ---------- math ----------
+function erf(x){var s=x<0?-1:1;x=Math.abs(x);var t=1/(1+0.3275911*x);
+  var y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return s*y;}
+function cdf(z){return 0.5*(1+erf(z/Math.SQRT2));}
+function inv(p){// Acklam
+  var a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.3577518672690,-30.66479806614716,2.506628277459239],
+      b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572],
+      c=[-0.007784894002430293,-0.3223964580411365,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783],
+      d=[0.007784695709041462,0.3224671290700398,2.445134137142996,3.754408661907416],pl=0.02425,q,r;
+  if(p<pl){q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  if(p>1-pl){q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  q=p-0.5;r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+function lgamma(x){var g=7,c=[0.99999999999980993,676.5203681218851,-1259.1392167224028,771.32342877765313,-176.61502916214059,12.507343278686905,-0.13857109526572012,9.9843695780195716e-6,1.5056327351493116e-7];
+  if(x<0.5)return Math.log(Math.PI/Math.sin(Math.PI*x))-lgamma(1-x);x-=1;var s=c[0];for(var i=1;i<g+2;i++)s+=c[i]/(x+i);var t=x+g+0.5;
+  return 0.5*Math.log(2*Math.PI)+(x+0.5)*Math.log(t)-t+Math.log(s);}
+function gammaP(a,x){// regularized lower incomplete gamma
+  if(x<=0)return 0;
+  if(x<a+1){var sum=1/a,term=sum;for(var n=1;n<1000;n++){term*=x/(a+n);sum+=term;if(Math.abs(term)<Math.abs(sum)*1e-14)break;}
+    return sum*Math.exp(-x+a*Math.log(x)-lgamma(a));}
+  // continued fraction for Q
+  var b=x+1-a,cc=1/1e-300,dd=1/b,h=dd;for(var i=1;i<1000;i++){var an=-i*(i-a);b+=2;dd=an*dd+b;if(Math.abs(dd)<1e-300)dd=1e-300;
+    cc=b+an/cc;if(Math.abs(cc)<1e-300)cc=1e-300;dd=1/dd;var del=dd*cc;h*=del;if(Math.abs(del-1)<1e-14)break;}
+  return 1-Math.exp(-x+a*Math.log(x)-lgamma(a))*h;}
+function chi2sf(x,k){return Math.max(0,1-gammaP(k/2,x/2));}
+
+function alphaFor(conf,sides,k,bonf){var a=1-conf/100;if(bonf&&k>2)a=a/(k-1);return {a:a,z:inv(1-a/sides)};}
+function nPer(p1,lift,za,zb){var p2=p1*(1+lift);if(p2>=1||p1<=0)return NaN;
+  return Math.ceil(Math.pow(za+zb,2)*(p1*(1-p1)+p2*(1-p2))/Math.pow(p2-p1,2));}
+function mdeFor(p1,n,za,zb){var lo=1e-6,hi=(1/p1)-1-1e-9;if(nPer(p1,hi,za,zb)>n)return NaN;
+  for(var i=0;i<100;i++){var m=(lo+hi)/2;if(nPer(p1,m,za,zb)<=n)hi=m;else lo=m;}return hi;}
+
+// ---------- helpers ----------
+function $(id){return document.getElementById(id);}
+function num(id){var v=parseFloat($(id).value);return isFinite(v)?v:NaN;}
+function pct(x,d){return isFinite(x)?(x*100).toFixed(d==null?2:d)+"%":"–";}
+function int(x){return isFinite(x)?Math.round(x).toLocaleString("en-US"):"–";}
+function pv(p){return !isFinite(p)?"–":p<0.0001?"< 0.0001":p.toFixed(4);}
+function signed(x,d){return !isFinite(x)?"–":(x>0?"+":x<0?"−":"")+Math.abs(x*100).toFixed(d==null?1:d)+"%";}
+function msg(t){return '<p class="calc-msg">'+t+'</p>';}
+
+// ---------- scope ----------
+function dec(x,d){return isFinite(x)?x.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d}):"–";}
+function sint(x){return !isFinite(x)?"–":(x>0?"+":x<0?"−":"")+Math.abs(Math.round(x)).toLocaleString("en-US");}
+function scope(){
+  var V=num("s-vis"),D=num("s-days"),C=num("s-conv"),L=num("s-lift")/100;
+  if(!(V>0)||!(D>0)||!(C>=0)||C>V)return $("out-scope").innerHTML=msg("Enter visitors, days and conversions for the same date range. Conversions can’t be more than visitors.");
+  var dv=V/D,dc=C/D,cvr=C/V,lift=isFinite(L)?L:0,ncvr=cvr*(1+lift),inc=dv*(ncvr-cvr),ann=inc*365;
+  var o='<div class="table-wrap" role="region" tabindex="0" aria-label="Baseline table"><table class="narrow"><thead><tr><th scope="col">Baseline</th><th scope="col">Daily</th><th scope="col">Weekly</th></tr></thead><tbody>'+
+    '<tr><th scope="row">Visitors</th><td>'+dec(dv,0)+'</td><td>'+dec(dv*7,0)+'</td></tr>'+
+    '<tr><th scope="row">Conversions</th><td>'+dec(dc,1)+'</td><td>'+dec(dc*7,0)+'</td></tr>'+
+    '<tr><th scope="row">Conversion rate</th><td colspan="2">'+pct(cvr)+'</td></tr></tbody></table></div>';
+  o+='<div class="table-wrap" role="region" tabindex="0" aria-label="Impact table"><table class="narrow"><thead><tr><th scope="col">If the test wins ('+signed(lift,1)+')</th><th scope="col">Value</th></tr></thead><tbody>'+
+    '<tr><th scope="row">New conversion rate</th><td>'+pct(ncvr)+'</td></tr>'+
+    '<tr><th scope="row">Incremental conversions per day</th><td>'+(isFinite(inc)?(inc>=0?"+":"−")+dec(Math.abs(inc),1):"–")+'</td></tr>'+
+    '<tr><th scope="row">Incremental conversions per week</th><td>'+sint(inc*7)+'</td></tr>'+
+    '<tr class="hl"><th scope="row">Incremental conversions per year</th><td><strong>'+sint(ann)+'</strong></td></tr></tbody></table></div>';
+  var prev=C,carry=ann,frows="";
+  for(var i=1;i<=3;i++){var c=parseFloat($("s-c"+i).value);if(!(c>=0))continue;var nm=$("s-n"+i).value||("Step "+(i+1));
+    var r=prev>0?c/prev:NaN;carry=carry*r;
+    frows+='<tr><th scope="row">'+esc(nm)+'</th><td>'+int(c)+'</td><td>'+pct(r,1)+'</td><td>'+sint(carry)+'</td></tr>';prev=c;}
+  if(frows)o+='<div class="table-wrap" role="region" tabindex="0" aria-label="Funnel impact table"><table><thead><tr><th scope="col">Funnel step</th><th scope="col">Count in range</th><th scope="col">Rate from previous step</th><th scope="col">Incremental per year</th></tr></thead><tbody>'+
+    '<tr><th scope="row">Conversions</th><td>'+int(C)+'</td><td>'+pct(cvr,2)+' of visitors</td><td>'+sint(ann)+'</td></tr>'+frows+'</tbody></table></div>'+
+    '<p class="calc-note">Downstream estimates assume the extra conversions move through the funnel at today’s rates. A test that brings in less qualified visitors can lift the first step and not the last, so check the later steps in the readout.</p>';
+  $("out-scope").innerHTML=o;
+}
+function useScope(){var V=num("s-vis"),D=num("s-days"),C=num("s-conv");if(!(V>0&&D>0&&C>0))return;
+  $("p-base").value=+(C/V*100).toFixed(4);$("p-daily").value=Math.round(V/D);var L=num("s-lift");if(L>0)$("p-custom").value=L;plan();mdeTouched=false;show("plan");$("tab-plan").focus();}
+
+// ---------- plan ----------
+function plan(){
+  var base=num("p-base")/100,daily=num("p-daily"),k=Math.round(num("p-k")),conf=num("p-conf"),pw=num("p-power")/100,
+      sides=+$("p-sides").value,bonf=$("p-bonf").checked,custom=num("p-custom")/100,maxW=num("p-max");
+  if(!(base>0&&base<1)||!(daily>0)||!(k>=2))return $("out-plan").innerHTML=msg("Enter a baseline rate between 0 and 100%, daily visitors and at least 2 experiences.");
+  var al=alphaFor(conf,sides,k,bonf),zb=inv(pw),lifts=[0.05,0.10,0.15,0.20];if(custom>0&&lifts.indexOf(custom)<0)lifts.push(custom);
+  lifts.sort(function(a,b){return a-b;});
+  var rows="",anyLong=false;
+  lifts.forEach(function(l){var n=nPer(base,l,al.z,zb),days=Math.ceil(n*k/daily),wk=Math.ceil(days/7),long=wk>maxW;if(long)anyLong=true;
+    rows+='<tr'+(long?' class="long"':'')+'><th scope="row">'+signed(l,1)+'</th><td>'+pct(base*(1+l))+'</td><td>'+int(n)+'</td><td>'+int(n*k)+'</td><td>'+int(days)+'</td><td>'+int(wk)+(long?' <span class="flag">over '+maxW+' weeks</span>':'')+'</td></tr>';});
+  var note=(bonf&&k>2)?'<p class="calc-note">Bonferroni correction on: each of the '+(k-1)+' variants is tested at '+confLabel(al.a)+'% confidence.</p>':'';
+  $("out-plan").innerHTML='<div class="table-wrap" role="region" tabindex="0" aria-label="Plan results table"><table><thead><tr><th scope="col">Relative lift</th><th scope="col">Detectable rate</th><th scope="col">Visitors per experience</th><th scope="col">Total visitors</th><th scope="col">Days</th><th scope="col">Weeks</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+note+
+    (anyLong?'<p class="calc-note">Some lifts need more than '+maxW+' weeks. Check <button type="button" class="linkish" data-go="mde">the detectable lift by week</button> to see what a shorter test can find.</p>':'');
+}
+
+// ---------- mde ----------
+function mde(){
+  var base=num("m-base")/100,weekly=num("m-weekly"),k=Math.round(num("m-k")),conf=num("m-conf"),pw=num("m-power")/100,
+      sides=+$("m-sides").value,bonf=$("m-bonf").checked;
+  var hl=($("m-hl").value||"").split(/[ ,]+/).map(Number).filter(function(x){return x>0;});
+  if(!(base>0&&base<1)||!(weekly>0)||!(k>=2))return $("out-mde").innerHTML=msg("Enter a baseline rate, weekly visitors and at least 2 experiences.");
+  var al=alphaFor(conf,sides,k,bonf),zb=inv(pw),rows="";
+  for(var w=1;w<=12;w++){var n=Math.floor(weekly*w/k),m=mdeFor(base,n,al.z,zb),h=hl.indexOf(w)>=0;
+    rows+='<tr'+(h?' class="hl"':'')+'><th scope="row">Week '+w+'</th><td>'+int(n)+'</td><td>'+(isFinite(m)?signed(m,1):"too small")+'</td><td>'+(isFinite(m)?pct(base*(1+m)):"–")+'</td><td>'+(isFinite(m)?pct(base*m,3):"–")+'</td></tr>';}
+  $("out-mde").innerHTML='<div class="table-wrap" role="region" tabindex="0" aria-label="Detectable lift table"><table><thead><tr><th scope="col">Test length</th><th scope="col">Visitors per experience</th><th scope="col">Detectable relative lift</th><th scope="col">Detectable rate</th><th scope="col">Absolute change</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+    '<p class="calc-note">If the lift you expect is smaller than the detectable lift for your deadline, the test will probably come back inconclusive. Consider a bigger change, a higher-volume metric, or more traffic.</p>';
+}
+function copyPlan(){["base","k","conf","power","sides"].forEach(function(f){$("m-"+f).value=$("p-"+f).value;});
+  $("m-bonf").checked=$("p-bonf").checked;var d=num("p-daily");if(d>0)$("m-weekly").value=Math.round(d*7);mde();}
+
+// ---------- results ----------
+var rowCount=0;
+function addRow(name,v,c){rowCount++;var tr=document.createElement("tr"),i=rowCount,isC=$("r-rows").children.length===0;
+  tr.innerHTML='<td><label class="sr" for="rn'+i+'">Experience name</label><input id="rn'+i+'" class="rn" type="text" value="'+(name||("Variant "+String.fromCharCode(64+$("r-rows").children.length)))+'"></td>'+
+    '<td><label class="sr" for="rv'+i+'">Visitors</label><input id="rv'+i+'" class="rv" type="number" min="0" step="1" value="'+(v==null?"":v)+'"></td>'+
+    '<td><label class="sr" for="rc'+i+'">Conversions</label><input id="rc'+i+'" class="rc" type="number" min="0" step="1" value="'+(c==null?"":c)+'"></td>'+
+    '<td>'+(isC?'<span class="muted">Control</span>':'<button type="button" class="linkish rm">Remove</button>')+'</td>';
+  $("r-rows").appendChild(tr);}
+function results(){
+  var rows=[].slice.call($("r-rows").children).map(function(tr){return {n:tr.querySelector(".rn").value||"Variant",v:parseFloat(tr.querySelector(".rv").value),c:parseFloat(tr.querySelector(".rc").value)};});
+  var ok=rows.every(function(r){return r.v>0&&r.c>=0&&r.c<=r.v;});
+  if(!ok||rows.length<2)return $("out-results").innerHTML=msg("Enter visitors and conversions for the control and at least one variant. Conversions can’t be more than visitors.");
+  var k=rows.length,conf=num("r-conf"),sides=+$("r-sides").value,bonf=$("r-bonf").checked,al=alphaFor(conf,sides,k,bonf),zc=al.z;
+  var C=rows[0],p1=C.c/C.v,out="";
+  // SRM
+  if($("r-split").value==="equal"){var tot=rows.reduce(function(s,r){return s+r.v;},0),e=tot/k,chi=rows.reduce(function(s,r){return s+Math.pow(r.v-e,2)/e;},0),p=chi2sf(chi,k-1);
+    out+='<p class="calc-srm '+(p<0.001?"bad":"good")+'"><strong>Sample ratio check: '+(p<0.001?"mismatch":"OK")+'.</strong> Observed split '+rows.map(function(r){return (r.v/tot*100).toFixed(1)+"%";}).join(" / ")+' against an equal split ('+(p<0.0001?'p < 0.0001':'p = '+p.toFixed(4))+').'+(p<0.001?' Find the cause, such as targeting, redirects or tracking, before trusting these results.':'')+'</p>';}
+  var body='<tr><th scope="row">'+esc(C.n)+(/control/i.test(C.n)?'':' (control)')+'</th><td>'+int(C.v)+'</td><td>'+int(C.c)+'</td><td>'+pct(p1)+'</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>',summ="";
+  rows.slice(1).forEach(function(r){var p2=r.c/r.v,pool=(C.c+r.c)/(C.v+r.v),se0=Math.sqrt(pool*(1-pool)*(1/C.v+1/r.v)),z=se0>0?(p2-p1)/se0:0,
+      p=sides===2?2*(1-cdf(Math.abs(z))):1-cdf(z),sig=p<al.a,lift=p1>0?p2/p1-1:NaN,lo=NaN,hi=NaN;
+    if(C.c>0&&r.c>0){var sl=Math.sqrt((1-p1)/C.c+(1-p2)/r.c);var zz=inv(1-al.a/2);
+      lo=Math.exp(Math.log(p2/p1)-zz*sl)-1;hi=Math.exp(Math.log(p2/p1)+zz*sl)-1;}
+    var sed=Math.sqrt(p1*(1-p1)/C.v+p2*(1-p2)/r.v),beat=sed>0?cdf((p2-p1)/sed):0.5;
+    body+='<tr><th scope="row">'+esc(r.n)+'</th><td>'+int(r.v)+'</td><td>'+int(r.c)+'</td><td>'+pct(p2)+'</td><td>'+signed(lift,1)+'</td><td>'+signed(lo,1)+' to '+signed(hi,1)+'</td><td>'+pv(p)+'</td><td>'+(sig?'<span class="yes">Yes</span>':'No')+'</td></tr>';
+    var zb=inv(0.8),detect=mdeFor(p1,Math.min(C.v,r.v),zc,zb);
+    summ+='<p><strong>'+esc(r.n)+':</strong> '+(sig?(lift>0?'a significant lift of '+signed(lift,1):'a significant drop of '+signed(lift,1))+' in conversion rate ('+pct(p1)+' to '+pct(p2)+', p '+(p<0.0001?'< 0.0001':'= '+p.toFixed(4))+').'
+      :'no significant difference ('+pct(p1)+' vs. '+pct(p2)+', p = '+p.toFixed(4)+'). With this many visitors, the test could reliably detect a lift of about '+(isFinite(detect)?signed(detect,0):'–')+', so a smaller real effect may have been missed.')+
+      ' Chance it beats control: '+(beat*100).toFixed(1)+'%.</p>';});
+  var note=(bonf&&k>2)?'<p class="calc-note">Bonferroni correction on: each variant is tested at '+confLabel(al.a)+'% confidence.</p>':'';
+  out+='<div class="table-wrap" role="region" tabindex="0" aria-label="Results table"><table><thead><tr><th scope="col">Experience</th><th scope="col">Visitors</th><th scope="col">Conversions</th><th scope="col">Rate</th><th scope="col">Relative lift</th><th scope="col">'+confLabel(al.a)+'% CI on lift</th><th scope="col">p-value ('+(sides===2?"two":"one")+'-sided)</th><th scope="col">Significant</th></tr></thead><tbody>'+body+'</tbody></table></div>'+note+summ;
+  $("out-results").innerHTML=out;
+}
+function confLabel(a){return String(Number((100-a*100).toFixed(2)));}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+// ---------- tabs ----------
+var tabs=["scope","plan","mde","results"],mdeTouched=false;
+function show(name){tabs.forEach(function(t){var on=t===name;$("tab-"+t).setAttribute("aria-selected",on);$("tab-"+t).tabIndex=on?0:-1;$("panel-"+t).hidden=!on;});
+  if(name==="mde"&&!mdeTouched){copyPlan();}}
+tabs.forEach(function(t,i){var b=$("tab-"+t);b.addEventListener("click",function(){show(t);});
+  b.addEventListener("keydown",function(e){var n=tabs.length,j=e.key==="ArrowRight"?(i+1)%n:e.key==="ArrowLeft"?(i+n-1)%n:e.key==="Home"?0:e.key==="End"?n-1:-1;if(j>=0){e.preventDefault();show(tabs[j]);$("tab-"+tabs[j]).focus();}});});
+document.addEventListener("click",function(e){var g=e.target.getAttribute&&e.target.getAttribute("data-go");if(g){show(g);$("tab-"+g).focus();}
+  if(e.target.classList&&e.target.classList.contains("rm")){e.target.closest("tr").remove();results();}});
+$("panel-scope").addEventListener("input",scope);
+$("s-use").addEventListener("click",useScope);
+$("panel-plan").addEventListener("input",plan);
+$("panel-mde").addEventListener("input",function(e){if(e.target.id!=="m-copy")mdeTouched=true;mde();});
+$("m-copy").addEventListener("click",function(){copyPlan();});
+$("panel-results").addEventListener("input",results);
+$("r-add").addEventListener("click",function(){if($("r-rows").children.length<8){addRow();results();}});
+addRow("Control",10000,300);addRow("Variant B",10000,345);
+scope();plan();mde();results();
+})();
+</script>
+
+  <section aria-labelledby="h-contact">
+    <div class="container contact">
+      <h2 id="h-contact">Questions about testing?</h2>
+      <div class="contact-lines">
+        <div class="line"><code id="email">kmdecoux@gmail.com</code><button class="copy" id="copy-email" type="button">Copy email</button></div>
+        <div class="line"><a href="https://www.linkedin.com/in/kristal-decoux-6514219/" rel="noopener">linkedin.com/in/kristal-decoux-6514219</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot-row"><nav aria-label="Footer"><a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/llms.txt">llms.txt</a></nav><span>Set in Hanken Grotesk and Atkinson Hyperlegible, a typeface designed by the Braille Institute for readers with low vision.</span></div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('copy-email'); if(!b) return;
+  b.addEventListener('click', async function(e){
+    var btn=e.currentTarget, el=document.getElementById('email');
+    try{ await navigator.clipboard.writeText(el.textContent); btn.textContent='Copied'; }
+    catch(_){ var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent='Selected, press Ctrl+C'; }
+    setTimeout(function(){btn.textContent='Copy email'},2000);
+  });
+})();
+</script>
+</body>
+</html>

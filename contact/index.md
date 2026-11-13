@@ -11,7 +11,7 @@ I’m glad to hear about web strategy, conversion and experimentation leadership
 ## How to reach me
 
 - **Email:** <kmdecoux@gmail.com>. This is the fastest way to reach me.
-- **LinkedIn:** [linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux). Connect or send a message there.
+- **LinkedIn:** [linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/). Connect or send a message there.
 - **Location:** Lafayette, Louisiana, working remotely across US time zones. I’m on Central time.
 - **Resume:** [download a PDF](/resume.pdf) with my full experience, tools and education.
 
@@ -27,7 +27,7 @@ If you’re a recruiter or hiring manager, it helps to include the role, the tea
 
 `kmdecoux@gmail.com`
 
-[linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux)
+[linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)
 
 ---
 

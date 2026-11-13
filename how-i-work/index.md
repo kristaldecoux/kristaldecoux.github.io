@@ -188,7 +188,7 @@ I lead people the way I approach visitors: by understanding them first.
 
 `kmdecoux@gmail.com`
 
-[linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux)
+[linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)
 
 ---
 

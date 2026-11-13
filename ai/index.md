@@ -151,7 +151,7 @@ AI made it fast. Judgment made it right: knowing what to ask for, checking every
 
 `kmdecoux@gmail.com`
 
-[linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux)
+[linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)
 
 ---
 

@@ -142,7 +142,7 @@ I read science fiction, fantasy and magical realism, and I care about animal res
 
 `kmdecoux@gmail.com`
 
-[linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux)
+[linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)
 
 ---
 

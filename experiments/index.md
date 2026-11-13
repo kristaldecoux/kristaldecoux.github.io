@@ -413,7 +413,7 @@ Tests that lost
 
 `kmdecoux@gmail.com`
 
-[linkedin.com/in/kristal-decoux](https://www.linkedin.com/in/kristal-decoux)
+[linkedin.com/in/kristal-decoux-6514219](https://www.linkedin.com/in/kristal-decoux-6514219/)
 
 Figures come from my archived test plans and readouts. Ancestry program revenue and AWS program metrics are as reported on my resume. AWS readouts stayed with AWS; those results are as I recorded them. Percent changes are relative to control unless marked as rates.
 

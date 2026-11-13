@@ -38,6 +38,8 @@ Every program I’ve built runs on the same loop. A test doesn’t have to win, 
 
     Significance on primary and secondary metrics, then lifetime value to size the gain. The result becomes the next insight.
 
+For the math in steps 1, 5 and 6, I built [my own A/B test calculator](/calculator/): it scopes what a win is worth over a year, sizes the test, shows the smallest lift a 6- to 8-week test can detect, and analyzes the results.
+
 ## Where insights come from
 
 Many stakeholders don’t know what data exists or where to find it, so I document the sources that feed a hypothesis:
